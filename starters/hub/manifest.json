@@ -1,0 +1,46 @@
+{
+  "schema": 1,
+  "id": "starter-hub",
+  "name": "Starter Hub",
+  "description": "Catalog hub template. Adds a shell tab with layout, rails, search, and details.",
+  "author": "Community",
+  "version": "1.0.0",
+  "tags": [
+    "starter",
+    "hubs",
+    "movies",
+    "tv"
+  ],
+  "plugins": [
+    {
+      "id": "starter-hub",
+      "name": "Starter Hub",
+      "description": "Static sample catalog — replace catalog.js with your upstream",
+      "entry": "catalog.js",
+      "kind": "catalog",
+      "protocol": 1,
+      "kit": 1,
+      "types": [
+        "movie",
+        "tv"
+      ],
+      "capabilities": [
+        "nav",
+        "layout",
+        "rail",
+        "search",
+        "details"
+      ],
+      "nav": {
+        "tabId": "starter_hub",
+        "label": "Starter",
+        "accent": "#38BDF8"
+      },
+      "prelude": "_kit.js"
+    }
+  ],
+  "bundle": [
+    "catalog.js",
+    "_kit.js"
+  ]
+}
