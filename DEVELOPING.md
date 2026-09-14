@@ -136,7 +136,7 @@ Each **plugin** object:
 | `id` | yes | Module id unique **inside this pack** (enrich / multi-plugin) |
 | `name` | yes | Display name |
 | `entry` | yes | JS filename relative to manifest directory |
-| `kind` | no | `http` (default), `hop`, `catalog`, `host` |
+| `kind` | no | `http` (default), `hop`, `catalog`, `host`, `torrent`, `debrid` |
 | `types` | no | Domain tags — see [Plugin types](#plugin-types) |
 | `config` | no | Opaque JSON merged into `ctx.config` at runtime |
 | `prelude` | no | Shared JS file prepended before `entry` (e.g. `_kit.js`) |
@@ -243,6 +243,39 @@ File-host unwrap plugins. Registered by **`hosts`** (hostname suffix match).
 When a provider calls `ctx.hop(url)`, the host picks the hop plugin whose `hosts` suffix-matches the URL hostname.
 
 Hop `extract(ctx)` receives **`ctx.url`** (the embed page) and returns the same stream array shape as VOD plugins.
+
+---
+
+## Debrid magnet resolve (`kind: debrid`)
+
+Magnet → direct HTTP URL plugins for **Settings → Addons → Debrid**. Implement **`extract(ctx)`** with **`ctx.action === 'resolve'`**.
+
+### Resolve context
+
+```javascript
+ctx.action    // 'resolve'
+ctx.magnet    // string — magnet URI
+ctx.season    // number — TV season when known
+ctx.episode   // number — TV episode when known
+ctx.config    // manifest config + pack Addon settings (apiKey password field)
+ctx.fetch(url, opts)
+ctx.host.http.request(opts)
+ctx.log(msg) / ctx.error(msg)
+```
+
+### Return shape
+
+Return an **array** of one map (host takes the first playable row):
+
+```javascript
+{ url: 'https://…/file.mkv', name: 'Title', headers?: { … } }
+// or multi-file for host picker:
+{ files: [{ name: '…', url: 'https://…', size?: 123 }] }
+```
+
+Miss / throw → host fails the magnet resolve (no silent local fallback when a plugin is selected).
+
+Reference: `forja-packs/debrid/`. Schema: [`schema/debrid-resolve.schema.json`](schema/debrid-resolve.schema.json).
 
 ---
 

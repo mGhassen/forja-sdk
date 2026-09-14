@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://forja.app/sdk/schema/debrid-resolve.schema.json",
+  "title": "Debrid resolve result row",
+  "description": "One element of the array returned by kind:debrid extract(action=resolve).",
+  "type": "object",
+  "additionalProperties": true,
+  "properties": {
+    "url": { "type": "string", "minLength": 1 },
+    "name": { "type": "string" },
+    "headers": {
+      "type": "object",
+      "additionalProperties": { "type": "string" }
+    },
+    "files": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["url"],
+        "properties": {
+          "name": { "type": "string" },
+          "url": { "type": "string", "minLength": 1 },
+          "size": { "type": "number" }
+        }
+      }
+    }
+  },
+  "anyOf": [
+    { "required": ["url"] },
+    { "required": ["files"] }
+  ]
+}

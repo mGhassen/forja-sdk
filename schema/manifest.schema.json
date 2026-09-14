@@ -54,7 +54,7 @@
         },
         "kind": {
           "type": "string",
-          "enum": ["http", "hop", "catalog", "host", "torrent"],
+          "enum": ["http", "hop", "catalog", "host", "torrent", "debrid"],
           "default": "http"
         },
         "types": {
