@@ -99,6 +99,90 @@ function hubNotModified(action) {
   ];
 }
 
+/// Paint-ready poster card — pack shapes props; host validates + paints only.
+function hubPaintPoster(item, opts) {
+  opts = opts || {};
+  var meta = item || {};
+  var title = String(meta.name || meta.title || opts.title || '');
+  var imageUrl = String(
+    meta.poster || meta.posterUrl || meta.imageUrl || opts.imageUrl || '',
+  );
+  var paint = {
+    type: 'posterCard',
+    props: {
+      title: title,
+      imageUrl: imageUrl,
+    },
+  };
+  if (meta.rating != null || opts.rating != null) {
+    paint.props.rating = Number(meta.rating != null ? meta.rating : opts.rating);
+  }
+  if (opts.rank != null) paint.props.rank = Number(opts.rank);
+  if (meta.badge || opts.badge) paint.props.badge = String(meta.badge || opts.badge);
+  if (opts.subtitle || meta.releaseInfo) {
+    paint.props.subtitle = String(opts.subtitle || meta.releaseInfo || '');
+  }
+  if (opts.aspect) paint.props.aspect = String(opts.aspect);
+  var out = Object.assign({}, meta);
+  out.paint = paint;
+  if (meta.open) out.open = meta.open;
+  if (!out.meta && (meta.id || meta.name)) {
+    out.meta = {
+      id: String(meta.id || ''),
+      type: String(meta.type || ''),
+      name: title,
+      poster: imageUrl,
+      open: meta.open || null,
+    };
+  }
+  return out;
+}
+
+/// Paint-ready event card — pack shapes all display fields.
+function hubPaintEvent(item, opts) {
+  opts = opts || {};
+  var meta = item || {};
+  var props = Object.assign(
+    {
+      title: String(meta.name || meta.title || opts.title || ''),
+      posterUrl: String(meta.poster || meta.posterUrl || opts.posterUrl || ''),
+    },
+    opts.props || {},
+  );
+  var keys = [
+    'homeTeam',
+    'awayTeam',
+    'homeBadgeUrl',
+    'awayBadgeUrl',
+    'categoryLabel',
+    'scheduleLabel',
+    'timeLabel',
+    'viewers',
+    'live',
+    'width',
+    'height',
+  ];
+  for (var i = 0; i < keys.length; i++) {
+    var k = keys[i];
+    if (opts[k] != null) props[k] = opts[k];
+    else if (meta[k] != null) props[k] = meta[k];
+  }
+  var out = Object.assign({}, meta);
+  out.paint = { type: 'eventCard', props: props };
+  if (meta.open) out.open = meta.open;
+  return out;
+}
+
+/// Attach opaque load so host runs pack action blindly (no feed/rail branches).
+function hubWithLoad(node, action, params) {
+  var out = Object.assign({}, node || {});
+  out.load = {
+    action: String(action || ''),
+    params: params && typeof params === 'object' ? params : {},
+  };
+  return out;
+}
+
 function hubClampList(list, limit) {
   if (!Array.isArray(list)) return [];
   var n = Number(limit);
