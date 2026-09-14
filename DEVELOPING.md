@@ -4,7 +4,7 @@ Community guide for building **EngineJS packs** — JavaScript plugins the Forja
 
 The Flutter app is a **host**. It does not ship your scripts. Users install packs by manifest URL (**Settings → Forja Packs**). This repo is the **SDK** (schemas + kits). Official ForjaHQ example packs live in [forja-packs](https://github.com/mGhassen/forja-packs) — optional reference only; you do not need that repo to ship.
 
-**See also:** [README.md](README.md) · [contract.json](contract.json) · host RFCs in [Forja](https://github.com/mGhassen/Forja).
+**See also:** [README.md](README.md) · [contract.json](contract.json) · [docs/components.md](docs/components.md) · host RFCs in [Forja](https://github.com/mGhassen/Forja).
 
 ---
 
@@ -13,11 +13,13 @@ The Flutter app is a **host**. It does not ship your scripts. Users install pack
 | File | Role |
 |------|------|
 | [contract.json](contract.json) | Index — schema paths, kit entry points, host parity |
+| [docs/components.md](docs/components.md) | **Full** foundation catalog — mounted + not-yet-pack-wired |
+| [schema/layout-components.schema.json](schema/layout-components.schema.json) | Machine index (`status`: `mounted` \| `not_mounted`) |
 | [schema/manifest.schema.json](schema/manifest.schema.json) | Pack `manifest.json` |
 | [schema/catalog-envelope.schema.json](schema/catalog-envelope.schema.json) | Catalog `extract(ctx)` response |
 | [schema/vod-stream.schema.json](schema/vod-stream.schema.json) | VOD / hop `extract(ctx)` stream rows |
 | [schema/torrent-search.schema.json](schema/torrent-search.schema.json) | Torrent `search(ctx)` result array |
-| [catalog-kit.js](catalog-kit.js) | Canonical catalog prelude (`hubOk`, `kitStack`, …) |
+| [catalog-kit.js](catalog-kit.js) | Canonical catalog prelude (`hubOk`, `kitStack`, layout helpers, …) |
 | [torrent-kit.js](torrent-kit.js) | Canonical torrent prelude (`row`, `magnetFromHash`, …) |
 
 Host validates manifests at install via `PluginContract.validateManifest` (mirrors `manifest.schema.json`).
@@ -487,39 +489,57 @@ Keep source JS data-only; declare a second plugin for TMDB match, extra images, 
 
 The host runs `action: enrich` after `rail` / `details` and caches the merged result.
 
-### Layout kit (`kit.*` widgets)
+### Layout (one foundation catalog)
 
-Compose hub pages in **`layout`** with typed kit widgets. The host maps each `type` to a Flutter widget; packs declare structure only — no hardcoded My List chrome in Dart.
+**Full foundation catalog (mounted + not mounted):** [docs/components.md](docs/components.md) · [schema/layout-components.schema.json](schema/layout-components.schema.json).
+
+Only **`status: mounted`** types work in pack JSON today. Everything else in that file is real DS surface the host has not wired yet — do not emit those as `type` expecting paint.
+
+**Everything is a component.** The host has one mount table: pack JSON `{ type, props?, children?, load? }` → foundation widget. There is no “atoms vs blocks” API — prepared pages and small chrome pieces are the same catalog.
+
+**Compose with `kit.stack`:** put any component in `children[]` — `kit.topBar`, `kit.list`, `hero`, `columnsHeader`, …
 
 | Type | Role | Key fields |
 |------|------|------------|
-| `kit.stack` | Vertical column | `children[]`, `expand: true` (last child fills viewport) |
-| `kit.menu` | Underline filter menu | `items[]` (`id`, `label`), `toggle`, `focusUp` / `focusDown` / `focusLeft` / `focusRight` |
-| `kit.tabs` | Status / segment strip | `tabs[]`, `default`, `focusUp` / `focusDown` / `focusLeft` / `focusRight` |
-| `kit.list` | Host-backed grid | Optional opaque `source` id; `kindMenu`, `statusTab`, `focusLeft` / `focusRight` |
-| `kit.topBar` | Pack-declared top chips | `actions[]`, `focusDown` / `focusLeft` / `focusRight` |
-| `kit.categoryBar` | Sport / kind circles | `items[]`, `focusUp` / `focusDown` / `focusLeft` / `focusRight` |
-| `kit.row` | Horizontal rail | Same as legacy `rail` / `ranked` |
+| `kit.stack` | Composer (usually vertical column) | `children[]`, `expand: true` (last child fills viewport), optional `axis: 'horizontal'` |
+| `kit.menu` | Filter chips | `items[]` (`id`, `label`), `toggle`, focus edges |
+| `kit.tabs` | Status / segment strip | `tabs[]`, `default`, focus edges |
+| `kit.list` | Scroll grid/list of paint items | `style`, `kindMenu`, `statusTab`, optional opaque `source`; use `hubWithLoad` for feed |
+| `kit.topBar` | Top action chrome | `actions[]` |
+| `kit.categoryBar` | Kind / category strip or rail | `items[]`, `orientation: 'vertical'` for side rail |
+| `kit.row` | Horizontal poster rail | same as legacy `rail` / `ranked` |
+| `hero` / `mood` / `continue` / `because` | Home-style sections | pack `load` + paint props; host injects store callbacks only |
+| `columnsHeader` | Optional prepared page (top + side + body) | `children` or props — shortcut, not required |
+| `topBody` | Optional prepared page (top + kinds + grid) | same |
+| `tabsCards` | Optional prepared page (menu + tabs + cards) | same |
+| `catalogBody` / `search` / `details` / `shell` / `empty` | Other prepared surfaces | serializable `props` |
 
-Legacy aliases still work: `stack` → `kit.stack`, `tabs` + `style: 'underline'` → `kit.menu`, `host.my_list` → `kit.list`.
+Legacy aliases still work: `stack` → `kit.stack`, `tabs` + `style: 'kind'` → `kit.menu`, `rail` / `ranked` → `kit.row`.
 
-Helpers in pack `_kit.js` (copy into your hub):
+Helpers in [`catalog-kit.js`](catalog-kit.js) (copy into hub `_kit.js`):
 
 ```javascript
+// Usual pattern — stack of components
 kitStack('page', { expand: true }, [
-  kitMenu('kind', [{ id: 'movie', label: 'Film' }, …], { toggle: true, focusDown: 'status' }),
-  kitTabs('status', [{ id: 'watching', label: 'Watching' }, …], { default: 'plantowatch' }),
-  kitList('grid', { source: 'my_list', kindMenu: 'kind', statusTab: 'status' }),
+  kitTopBar('chrome', { actions: […] }),
+  kitCategoryBar('cats', { items: […], default: 'all' }),
+  hubWithLoad(kitList('items', { style: 'grid', kindMenu: 'cats' }), 'feed', {}),
 ]);
+
+// Or one prepared page as a single child / root
+kitColumnsHeader('page', { expand: true }, [
+  kitTopBar('chrome', { actions: […] }),
+  kitCategoryBar('cats', { orientation: 'vertical', items: […] }),
+  hubWithLoad(kitList('items', { style: 'grid', kindMenu: 'cats' }), 'feed', {}),
+]);
+
+// Any foundation type without a named helper
+kitNode('details', 'title', { props: { title: '…', backdropUrl: '…' } });
 ```
 
-Browse hubs keep `hero`, `mood`, `rail`, `host.continue`, etc. Use `kit.*` when you need composable chrome (menus, tabs, host lists) in one page tree.
+Packs declare structure + serializable props only — **no Dart, no callbacks in JSON**. Host injects `onSelect` / open / resume. Cards use `hubPaintPoster` / `hubPaintEvent` on feed rows.
 
-`kit.list` binds to a **host source backend** registered outside kit (RFC-085 · RFC-088): the pack declares layout + an opaque `source` id; foundation registers that id at boot (e.g. My List → `shared/foundation/services/follow/`). Kit never hardcodes product names. Optional `enrich` companion hydrates rows (e.g. TMDB details for Simkl stubs).
-
-Pack `kit.menu` / `kit.tabs` render in the **shell top bar** (same slot as Home Search / Films / Series) — not inside the page body.
-
-D-pad **←/→ inside a row** (chips, posters) is host-owned. **`focusLeft` / `focusRight`** fire only at the row edge (first / last item), or from a selected `kit.list` row when a side panel is open — same named-row jump as `focusUp` / `focusDown`. Example: `focusRight: 'sources-kind'` on a list lands on the generic sources panel tabs. Intra-row arrows stay index ± 1. OK / Back stay host (`open` / overlay pop).
+D-pad **←/→ inside a row** (chips, posters) is host-owned. **`focusLeft` / `focusRight`** fire only at the row edge (first / last item), or from a selected `kit.list` row when a side panel is open — same named-row jump as `focusUp` / `focusDown`. Intra-row arrows stay index ± 1. OK / Back stay host (`open` / overlay pop).
 
 ### Host helpers (catalog)
 

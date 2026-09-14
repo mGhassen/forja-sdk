@@ -7,6 +7,7 @@ This is the public SDK. Schemas, catalog/torrent kits, starters, and the authori
 | | |
 |--|--|
 | **Guide** | [`DEVELOPING.md`](DEVELOPING.md) |
+| **Foundation catalog** | [`docs/components.md`](docs/components.md) — full DS (mounted + not yet pack-wired) |
 | **Contract index** | [`contract.json`](contract.json) |
 | **Starters** | [`starters/`](starters/) — **provider** (Sources) + **hub** (shell tab) |
 | **Host** | [mGhassen/Forja](https://github.com/mGhassen/Forja) |
@@ -17,6 +18,7 @@ This is the public SDK. Schemas, catalog/torrent kits, starters, and the authori
 ```
 forja-sdk/
 ├── DEVELOPING.md
+├── docs/components.md
 ├── contract.json
 ├── catalog-kit.js / torrent-kit.js
 ├── schema/ · fixtures/
@@ -37,7 +39,7 @@ Paste the absolute `manifest.json` path in **Settings → Forja Packs**. Details
 
 ## Use in a pack
 
-1. Read [`DEVELOPING.md`](DEVELOPING.md).
+1. Read [`DEVELOPING.md`](DEVELOPING.md). For hub layout types, use [`docs/components.md`](docs/components.md).
 2. Copy [`starters/provider/`](starters/provider/) or [`starters/hub/`](starters/hub/).
 3. Keep `manifest.json` aligned with [`schema/manifest.schema.json`](schema/manifest.schema.json).
 4. Host a `manifest.json` URL — users install it in **Settings → Forja Packs**.

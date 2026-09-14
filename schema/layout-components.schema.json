@@ -1,0 +1,873 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://forja.app/sdk/schema/layout-components.schema.json",
+  "title": "Forja foundation components catalog",
+  "description": "Full forja_foundation inventory for pack authors. status=mounted → PackPaintTree accepts type today. status=not_mounted → exists in DS, not pack-JSON yet. See docs/components.md.",
+  "version": 2,
+  "statusValues": ["mounted", "not_mounted"],
+  "components": [
+    {
+      "type": "kit.stack",
+      "foundation": "LayoutStack",
+      "tier": "layout",
+      "status": "mounted",
+      "helper": "kitStack",
+      "aliases": ["stack"],
+      "props": ["children", "widgets", "expand", "expandLast", "axis"]
+    },
+    {
+      "type": "kit.topBar",
+      "foundation": "CatalogTopChrome",
+      "tier": "layout",
+      "status": "mounted",
+      "helper": "kitTopBar",
+      "aliases": ["topBar", "kit.top_bar"],
+      "props": ["actions", "title", "label"]
+    },
+    {
+      "type": "kit.categoryBar",
+      "foundation": "CatalogChipBar / CatalogSideRail",
+      "tier": "layout",
+      "status": "mounted",
+      "helper": "kitCategoryBar",
+      "aliases": ["categoryBar", "kit.category_bar", "kinds"],
+      "props": ["items", "default", "orientation", "axis", "vertical", "width"]
+    },
+    {
+      "type": "kit.menu",
+      "foundation": "ForjaShellChip / CatalogChipBar",
+      "tier": "layout",
+      "status": "mounted",
+      "helper": "kitMenu",
+      "aliases": ["menu"],
+      "props": ["items", "toggle"]
+    },
+    {
+      "type": "kit.tabs",
+      "foundation": "CatalogChipBar",
+      "tier": "layout",
+      "status": "mounted",
+      "helper": "kitTabs",
+      "aliases": ["tabs"],
+      "props": ["tabs", "items", "default"]
+    },
+    {
+      "type": "kit.list",
+      "foundation": "CatalogCardsGrid",
+      "tier": "layout",
+      "status": "mounted",
+      "helper": "kitList",
+      "props": ["items", "style", "kindMenu", "statusTab", "source", "load"]
+    },
+    {
+      "type": "kit.row",
+      "foundation": "PosterRail",
+      "tier": "layout",
+      "status": "mounted",
+      "helper": "kitRow",
+      "aliases": ["rail", "ranked"],
+      "props": ["title", "items", "style", "load"]
+    },
+    {
+      "type": "hero",
+      "foundation": "CinematicHero",
+      "tier": "layout",
+      "status": "mounted",
+      "aliases": ["cinematic_hero"],
+      "props": ["items", "title", "bleed", "load"]
+    },
+    {
+      "type": "mood",
+      "foundation": "MoodSection",
+      "tier": "layout",
+      "status": "mounted",
+      "props": ["title", "options", "load"]
+    },
+    {
+      "type": "continue",
+      "foundation": "ContinueSection",
+      "tier": "layout",
+      "status": "mounted",
+      "aliases": ["host.continue"],
+      "props": ["mergeHomeWatchHistory"]
+    },
+    {
+      "type": "because",
+      "foundation": "BecauseSection",
+      "tier": "layout",
+      "status": "mounted",
+      "aliases": ["host.because"],
+      "props": ["load", "heading", "seedPoster", "canShuffle", "items"]
+    },
+    {
+      "type": "vertical_filters",
+      "foundation": "VerticalFiltersRegistry (shell rail)",
+      "tier": "layout",
+      "status": "mounted",
+      "aliases": ["host.vertical_filters", "watch_providers"],
+      "props": ["options", "showSelectedInTopBar"]
+    },
+    {
+      "type": "columnsHeader",
+      "foundation": "ColumnsHeaderBlock",
+      "tier": "block",
+      "status": "mounted",
+      "helper": "kitColumnsHeader",
+      "props": ["actions", "sideItems", "sideWidth", "sideOnLeading", "children"]
+    },
+    {
+      "type": "topBody",
+      "foundation": "TopBodyBlock",
+      "tier": "block",
+      "status": "mounted",
+      "helper": "kitTopBody",
+      "props": ["actions", "kindItems", "cardKind", "children"]
+    },
+    {
+      "type": "tabsCards",
+      "foundation": "TabsCardsBlock",
+      "tier": "block",
+      "status": "mounted",
+      "helper": "kitTabsCards",
+      "props": ["menuItems", "tabItems", "children"]
+    },
+    {
+      "type": "catalogBody",
+      "foundation": "CatalogBody",
+      "tier": "block",
+      "status": "mounted",
+      "props": ["bottomGap", "children"]
+    },
+    {
+      "type": "search",
+      "foundation": "CatalogSearchPage",
+      "tier": "block",
+      "status": "mounted",
+      "props": ["hintText"]
+    },
+    {
+      "type": "details",
+      "foundation": "DetailsBlock",
+      "tier": "block",
+      "status": "mounted",
+      "helper": "kitNode",
+      "props": [
+        "title",
+        "backdropUrl",
+        "posterUrl",
+        "overview",
+        "genres",
+        "metaParts",
+        "rating"
+      ]
+    },
+    {
+      "type": "matchDetails",
+      "foundation": "MatchDetailsPage",
+      "tier": "block",
+      "status": "mounted",
+      "helper": "kitNode",
+      "props": ["title", "backdropUrl", "posterUrl", "overview"]
+    },
+    {
+      "type": "entryDetails",
+      "foundation": "EntryDetails",
+      "tier": "block",
+      "status": "mounted",
+      "helper": "kitNode",
+      "props": ["title", "emptyMessage"]
+    },
+    {
+      "type": "shell",
+      "foundation": "ShellBlock",
+      "tier": "block",
+      "status": "mounted",
+      "helper": "kitNode",
+      "props": ["sideRailWidth", "children"]
+    },
+    {
+      "type": "empty",
+      "foundation": "EmptyBlock",
+      "tier": "block",
+      "status": "mounted",
+      "helper": "kitNode",
+      "props": ["title", "description"]
+    },
+    {
+      "type": "posterCard",
+      "foundation": "InteractivePosterCard",
+      "tier": "paint",
+      "status": "mounted",
+      "helper": "hubPaintPoster",
+      "aliases": ["poster"],
+      "paintOnly": true,
+      "props": ["title", "imageUrl", "posterUrl", "subtitle", "rating", "rank", "badge"]
+    },
+    {
+      "type": "eventCard",
+      "foundation": "EventCard",
+      "tier": "paint",
+      "status": "mounted",
+      "helper": "hubPaintEvent",
+      "aliases": ["event"],
+      "paintOnly": true,
+      "props": [
+        "title",
+        "posterUrl",
+        "homeTeam",
+        "awayTeam",
+        "timeLabel",
+        "live",
+        "viewers"
+      ]
+    },
+
+    {
+      "foundation": "Button",
+      "path": "components/button.dart",
+      "tier": "component",
+      "status": "not_mounted"
+    },
+    {
+      "foundation": "ButtonGroup",
+      "path": "components/button_group.dart",
+      "tier": "component",
+      "status": "not_mounted"
+    },
+    {
+      "foundation": "VerticalMenu",
+      "path": "components/vertical_menu.dart",
+      "tier": "component",
+      "status": "not_mounted"
+    },
+    {
+      "foundation": "Switch",
+      "path": "components/switch.dart",
+      "tier": "component",
+      "status": "not_mounted"
+    },
+    {
+      "foundation": "Slider",
+      "path": "components/slider.dart",
+      "tier": "component",
+      "status": "not_mounted"
+    },
+    {
+      "foundation": "Input",
+      "path": "components/input.dart",
+      "tier": "component",
+      "status": "not_mounted"
+    },
+    {
+      "foundation": "Field",
+      "path": "components/field.dart",
+      "tier": "component",
+      "status": "not_mounted"
+    },
+    {
+      "foundation": "Textarea",
+      "path": "components/textarea.dart",
+      "tier": "component",
+      "status": "not_mounted"
+    },
+    {
+      "foundation": "InputGroup",
+      "path": "components/input_group.dart",
+      "tier": "component",
+      "status": "not_mounted"
+    },
+    {
+      "foundation": "SearchField",
+      "path": "components/search_field.dart",
+      "tier": "component",
+      "status": "not_mounted"
+    },
+    {
+      "foundation": "Select",
+      "path": "components/select.dart",
+      "tier": "component",
+      "status": "not_mounted"
+    },
+    {
+      "foundation": "Checkbox",
+      "path": "components/checkbox.dart",
+      "tier": "component",
+      "status": "not_mounted"
+    },
+    {
+      "foundation": "Radio",
+      "path": "components/radio.dart",
+      "tier": "component",
+      "status": "not_mounted"
+    },
+    {
+      "foundation": "Toggle",
+      "path": "components/toggle.dart",
+      "tier": "component",
+      "status": "not_mounted"
+    },
+    {
+      "foundation": "SegmentedControl",
+      "path": "components/segmented.dart",
+      "tier": "component",
+      "status": "not_mounted"
+    },
+    {
+      "foundation": "Badge",
+      "path": "components/badge.dart",
+      "tier": "component",
+      "status": "not_mounted"
+    },
+    {
+      "foundation": "Label",
+      "path": "components/label.dart",
+      "tier": "component",
+      "status": "not_mounted"
+    },
+    {
+      "foundation": "Alert",
+      "path": "components/alert.dart",
+      "tier": "component",
+      "status": "not_mounted"
+    },
+    {
+      "foundation": "ForjaDialog",
+      "path": "components/dialog.dart",
+      "tier": "component",
+      "status": "not_mounted"
+    },
+    {
+      "foundation": "Sheet",
+      "path": "components/sheet.dart",
+      "tier": "component",
+      "status": "not_mounted"
+    },
+    {
+      "foundation": "Toast",
+      "path": "components/toast.dart",
+      "tier": "component",
+      "status": "not_mounted"
+    },
+    {
+      "foundation": "Empty",
+      "path": "components/empty.dart",
+      "tier": "component",
+      "status": "not_mounted"
+    },
+    {
+      "foundation": "Separator",
+      "path": "components/separator.dart",
+      "tier": "component",
+      "status": "not_mounted"
+    },
+    {
+      "foundation": "Avatar",
+      "path": "components/avatar.dart",
+      "tier": "component",
+      "status": "not_mounted"
+    },
+    {
+      "foundation": "Skeleton",
+      "path": "components/skeleton.dart",
+      "tier": "component",
+      "status": "not_mounted"
+    },
+    {
+      "foundation": "Progress",
+      "path": "components/progress.dart",
+      "tier": "component",
+      "status": "not_mounted"
+    },
+    {
+      "foundation": "Spinner",
+      "path": "components/spinner.dart",
+      "tier": "component",
+      "status": "not_mounted"
+    },
+    {
+      "foundation": "Tooltip",
+      "path": "components/tooltip.dart",
+      "tier": "component",
+      "status": "not_mounted"
+    },
+    {
+      "foundation": "Accordion",
+      "path": "components/accordion.dart",
+      "tier": "component",
+      "status": "not_mounted"
+    },
+    {
+      "foundation": "Breadcrumb",
+      "path": "components/breadcrumb.dart",
+      "tier": "component",
+      "status": "not_mounted"
+    },
+    {
+      "foundation": "PageDots",
+      "path": "components/pagination.dart",
+      "tier": "component",
+      "status": "not_mounted"
+    },
+    {
+      "foundation": "ListTile",
+      "path": "components/list_tile.dart",
+      "tier": "component",
+      "status": "not_mounted"
+    },
+    {
+      "foundation": "Item",
+      "path": "components/item.dart",
+      "tier": "component",
+      "status": "not_mounted"
+    },
+    {
+      "foundation": "Kbd",
+      "path": "components/kbd.dart",
+      "tier": "component",
+      "status": "not_mounted"
+    },
+    {
+      "foundation": "Heading",
+      "path": "components/typography.dart",
+      "tier": "component",
+      "status": "not_mounted"
+    },
+    {
+      "foundation": "Body",
+      "path": "components/typography.dart",
+      "tier": "component",
+      "status": "not_mounted"
+    },
+    {
+      "foundation": "FocusableTap",
+      "path": "components/focusable_tap.dart",
+      "tier": "component",
+      "status": "not_mounted"
+    },
+    {
+      "foundation": "PosterFrame",
+      "path": "components/poster_frame.dart",
+      "tier": "component",
+      "status": "not_mounted"
+    },
+    {
+      "foundation": "ForjaNetworkImage",
+      "path": "components/network_image.dart",
+      "tier": "component",
+      "status": "not_mounted"
+    },
+    {
+      "foundation": "SettledNetworkImage",
+      "path": "components/settled_network_image.dart",
+      "tier": "component",
+      "status": "not_mounted"
+    },
+    {
+      "foundation": "MoodCircle",
+      "path": "components/mood_circle.dart",
+      "tier": "component",
+      "status": "not_mounted"
+    },
+
+    {
+      "foundation": "PosterRail",
+      "path": "widgets/catalog/poster_rail.dart",
+      "tier": "widget",
+      "status": "not_mounted",
+      "note": "Also reached via mounted kit.row"
+    },
+    {
+      "foundation": "PosterCard",
+      "path": "widgets/catalog/poster_card.dart",
+      "tier": "widget",
+      "status": "not_mounted",
+      "note": "Paint via posterCard"
+    },
+    {
+      "foundation": "HomeLoadingSkeleton",
+      "path": "widgets/catalog/home_loading_skeleton.dart",
+      "tier": "widget",
+      "status": "not_mounted"
+    },
+    {
+      "foundation": "KenBurnsBackdrop",
+      "path": "widgets/catalog/ken_burns_backdrop.dart",
+      "tier": "widget",
+      "status": "not_mounted"
+    },
+    {
+      "foundation": "RotatingHeroBackdrop",
+      "path": "widgets/catalog/rotating_hero_backdrop.dart",
+      "tier": "widget",
+      "status": "not_mounted"
+    },
+    {
+      "foundation": "CategoryCircleMeta",
+      "path": "widgets/catalog/category_circle_meta.dart",
+      "tier": "widget",
+      "status": "not_mounted"
+    },
+    {
+      "foundation": "ServerGrid",
+      "path": "widgets/catalog/server_grid.dart",
+      "tier": "widget",
+      "status": "not_mounted"
+    },
+    {
+      "foundation": "CatalogSearchScreen",
+      "path": "widgets/catalog/catalog_search_screen.dart",
+      "tier": "widget",
+      "status": "not_mounted"
+    },
+    {
+      "foundation": "CatalogSearchResultCard",
+      "path": "widgets/catalog/catalog_search_result_card.dart",
+      "tier": "widget",
+      "status": "not_mounted"
+    },
+    {
+      "foundation": "CatalogSearchFilters",
+      "path": "widgets/catalog/catalog_search_filters.dart",
+      "tier": "widget",
+      "status": "not_mounted"
+    },
+    {
+      "foundation": "CatalogSearchFilterLens",
+      "path": "widgets/catalog/catalog_search_filter_lens.dart",
+      "tier": "widget",
+      "status": "not_mounted"
+    },
+    {
+      "foundation": "RecentSearchHelperTile",
+      "path": "widgets/catalog/recent_search_helper_tile.dart",
+      "tier": "widget",
+      "status": "not_mounted"
+    },
+    {
+      "foundation": "ContinueWatchingCard",
+      "path": "widgets/catalog/continue_watching_card.dart",
+      "tier": "widget",
+      "status": "not_mounted"
+    },
+    {
+      "foundation": "DetailsHero",
+      "path": "widgets/details/details_hero.dart",
+      "tier": "widget",
+      "status": "not_mounted",
+      "note": "Used inside mounted details / matchDetails"
+    },
+    {
+      "foundation": "DetailsBody",
+      "path": "widgets/details/details_body.dart",
+      "tier": "widget",
+      "status": "not_mounted"
+    },
+    {
+      "foundation": "DetailsScrollPage",
+      "path": "widgets/details/details_scroll_page.dart",
+      "tier": "widget",
+      "status": "not_mounted"
+    },
+    {
+      "foundation": "DetailsRails",
+      "path": "widgets/details/details_rails.dart",
+      "tier": "widget",
+      "status": "not_mounted"
+    },
+    {
+      "foundation": "PlayRow",
+      "path": "widgets/details/play_row.dart",
+      "tier": "widget",
+      "status": "not_mounted"
+    },
+    {
+      "foundation": "FactsPanel",
+      "path": "widgets/details/facts_panel.dart",
+      "tier": "widget",
+      "status": "not_mounted"
+    },
+    {
+      "foundation": "MetaLine",
+      "path": "widgets/details/meta_line.dart",
+      "tier": "widget",
+      "status": "not_mounted"
+    },
+    {
+      "foundation": "HeroTitle",
+      "path": "widgets/details/hero_title.dart",
+      "tier": "widget",
+      "status": "not_mounted"
+    },
+    {
+      "foundation": "HeroOverviewText",
+      "path": "widgets/details/hero_overview_text.dart",
+      "tier": "widget",
+      "status": "not_mounted"
+    },
+    {
+      "foundation": "KitHeroContentScrim",
+      "path": "widgets/details/hero_content_scrim.dart",
+      "tier": "widget",
+      "status": "not_mounted"
+    },
+    {
+      "foundation": "HeroWatchProvidersRow",
+      "path": "widgets/details/watch_providers_row.dart",
+      "tier": "widget",
+      "status": "not_mounted"
+    },
+    {
+      "foundation": "HeroPillPlaySurface",
+      "path": "widgets/details/hero_pill_surfaces.dart",
+      "tier": "widget",
+      "status": "not_mounted"
+    },
+    {
+      "foundation": "ListStatusPin",
+      "path": "widgets/details/list_status_pin.dart",
+      "tier": "widget",
+      "status": "not_mounted"
+    },
+    {
+      "foundation": "ListStatusHero",
+      "path": "widgets/details/list_status_hero.dart",
+      "tier": "widget",
+      "status": "not_mounted"
+    },
+    {
+      "foundation": "DetailsCastSection",
+      "path": "widgets/details/cast_section.dart",
+      "tier": "widget",
+      "status": "not_mounted"
+    },
+    {
+      "foundation": "DetailsTrailersSection",
+      "path": "widgets/details/trailers_section.dart",
+      "tier": "widget",
+      "status": "not_mounted"
+    },
+    {
+      "foundation": "DetailsRecommendationsSection",
+      "path": "widgets/details/recommendations_section.dart",
+      "tier": "widget",
+      "status": "not_mounted"
+    },
+    {
+      "foundation": "TvSeasonEpisodePicker",
+      "path": "widgets/details/tv_season_episode_picker.dart",
+      "tier": "widget",
+      "status": "not_mounted"
+    },
+    {
+      "foundation": "EpisodeRangeSelector",
+      "path": "widgets/details/episode_range_bar.dart",
+      "tier": "widget",
+      "status": "not_mounted"
+    },
+    {
+      "foundation": "WatchProgressBar",
+      "path": "widgets/details/watch_progress_bar.dart",
+      "tier": "widget",
+      "status": "not_mounted"
+    },
+    {
+      "foundation": "WatchSeriesProgress",
+      "path": "widgets/details/watch_series_progress.dart",
+      "tier": "widget",
+      "status": "not_mounted"
+    },
+    {
+      "foundation": "TmdbPaintGate",
+      "path": "widgets/details/tmdb_paint_gate.dart",
+      "tier": "widget",
+      "status": "not_mounted"
+    },
+    {
+      "foundation": "ForjaShellChip",
+      "path": "widgets/chrome/shell_chip.dart",
+      "tier": "widget",
+      "status": "not_mounted"
+    },
+    {
+      "foundation": "ShellSectionTitle",
+      "path": "widgets/chrome/shell_section_title.dart",
+      "tier": "widget",
+      "status": "not_mounted"
+    },
+    {
+      "foundation": "ShellTabHeader",
+      "path": "widgets/chrome/shell_tab_header.dart",
+      "tier": "widget",
+      "status": "not_mounted"
+    },
+    {
+      "foundation": "HorizontalScroller",
+      "path": "widgets/chrome/horizontal_scroller.dart",
+      "tier": "widget",
+      "status": "not_mounted"
+    },
+    {
+      "foundation": "LogoMenuRail",
+      "path": "widgets/chrome/logo_menu_rail.dart",
+      "tier": "widget",
+      "status": "not_mounted"
+    },
+    {
+      "foundation": "SidePanelOverlay",
+      "path": "widgets/chrome/side_panel_overlay.dart",
+      "tier": "widget",
+      "status": "not_mounted"
+    },
+    {
+      "foundation": "PortalListPanel",
+      "path": "widgets/chrome/portal_list_panel.dart",
+      "tier": "widget",
+      "status": "not_mounted"
+    },
+    {
+      "foundation": "PortalsChip",
+      "path": "widgets/chrome/portals_chip.dart",
+      "tier": "widget",
+      "status": "not_mounted"
+    },
+    {
+      "foundation": "SettingsPlayerChrome",
+      "path": "widgets/chrome/settings_player_chrome.dart",
+      "tier": "widget",
+      "status": "not_mounted"
+    },
+    {
+      "foundation": "LayoutScope",
+      "path": "widgets/chrome/layout_scope.dart",
+      "tier": "widget",
+      "status": "not_mounted",
+      "note": "Host-injected scope, not a pack type"
+    },
+    {
+      "foundation": "SourcesPanelChrome",
+      "path": "widgets/sources/sources_panel_chrome.dart",
+      "tier": "widget",
+      "status": "not_mounted"
+    },
+    {
+      "foundation": "PanelTabs",
+      "path": "widgets/sources/panel_tabs.dart",
+      "tier": "widget",
+      "status": "not_mounted"
+    },
+    {
+      "foundation": "LiveTvBrowse",
+      "path": "widgets/sources/live_tv_browse.dart",
+      "tier": "widget",
+      "status": "not_mounted"
+    },
+    {
+      "foundation": "ChannelGuide",
+      "path": "widgets/guide/channel_guide.dart",
+      "tier": "widget",
+      "status": "not_mounted"
+    },
+    {
+      "foundation": "ChannelGuidePanel",
+      "path": "widgets/guide/channel_guide_panel.dart",
+      "tier": "widget",
+      "status": "not_mounted"
+    },
+    {
+      "foundation": "GuideEpgCard",
+      "path": "widgets/guide/guide_epg_card.dart",
+      "tier": "widget",
+      "status": "not_mounted"
+    },
+    {
+      "foundation": "ChannelSearchOverlay",
+      "path": "widgets/guide/channel_search_overlay.dart",
+      "tier": "widget",
+      "status": "not_mounted"
+    },
+    {
+      "foundation": "PlayerStatsPanel",
+      "path": "widgets/guide/player_stats_panel.dart",
+      "tier": "widget",
+      "status": "not_mounted"
+    },
+    {
+      "foundation": "GuideBrowseTextField",
+      "path": "widgets/guide/guide_browse_text_field.dart",
+      "tier": "widget",
+      "status": "not_mounted"
+    },
+    {
+      "foundation": "LoadingDots",
+      "path": "widgets/feedback/loading_dots.dart",
+      "tier": "widget",
+      "status": "not_mounted"
+    },
+    {
+      "foundation": "FrostedPanel",
+      "path": "widgets/feedback/frosted_panel.dart",
+      "tier": "widget",
+      "status": "not_mounted"
+    },
+    {
+      "foundation": "FractalGlassGradient",
+      "path": "widgets/feedback/fractal_glass_gradient.dart",
+      "tier": "widget",
+      "status": "not_mounted"
+    },
+    {
+      "foundation": "CardPlayOverlay",
+      "path": "widgets/feedback/card_play_overlay.dart",
+      "tier": "widget",
+      "status": "not_mounted"
+    },
+    {
+      "foundation": "ErrorRetryPanel",
+      "path": "widgets/feedback/error_retry_panel.dart",
+      "tier": "widget",
+      "status": "not_mounted"
+    },
+    {
+      "foundation": "TvSearchBrowseOverlay",
+      "path": "widgets/tv/tv_search_browse_overlay.dart",
+      "tier": "widget",
+      "status": "not_mounted"
+    },
+    {
+      "foundation": "ListLetterJumpScope",
+      "path": "widgets/focus/list_letter_jump_scope.dart",
+      "tier": "widget",
+      "status": "not_mounted"
+    },
+    {
+      "foundation": "SearchBlock",
+      "path": "blocks/search/search_block.dart",
+      "tier": "block",
+      "status": "not_mounted"
+    },
+    {
+      "foundation": "EmptyShellFrame",
+      "path": "blocks/shell/empty_shell_frame.dart",
+      "tier": "block",
+      "status": "not_mounted"
+    },
+    {
+      "foundation": "ForjaLogo",
+      "path": "brand/forja_logo.dart",
+      "tier": "brand",
+      "status": "not_mounted"
+    },
+    {
+      "foundation": "AnimatedLogo",
+      "path": "brand/animated_logo.dart",
+      "tier": "brand",
+      "status": "not_mounted"
+    },
+    {
+      "foundation": "ForjaProfileAvatar",
+      "path": "brand/forja_profile_avatar.dart",
+      "tier": "brand",
+      "status": "not_mounted"
+    }
+  ]
+}

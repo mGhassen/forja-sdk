@@ -10,7 +10,12 @@
     "catalogEnvelope": "schema/catalog-envelope.schema.json",
     "vodStream": "schema/vod-stream.schema.json",
     "torrentSearch": "schema/torrent-search.schema.json",
-    "torrentRow": "schema/torrent-row.schema.json"
+    "torrentRow": "schema/torrent-row.schema.json",
+    "layoutComponents": "schema/layout-components.schema.json"
+  },
+  "docs": {
+    "guide": "DEVELOPING.md",
+    "layoutComponents": "docs/components.md"
   },
   "kits": {
     "catalog": "catalog-kit.js",

@@ -650,7 +650,9 @@ function hubEnrichTmdb(ctx, items, limit) {
   });
 }
 
-// --- Layout kit builders (protocol 1) — use in `layout` widgets[] ---
+// --- Layout builders (protocol 1) — one catalog of foundation components ---
+// Host mounts every `type` the same way. kit.stack composes children; each
+// child is any foundation type (chrome, list, hero, prepared page, …).
 
 function kitStack(id, opts, children) {
   var o = opts && typeof opts === 'object' ? opts : {};
@@ -678,6 +680,51 @@ function kitList(id, opts) {
 function kitRow(id, opts) {
   var o = opts && typeof opts === 'object' ? opts : {};
   return Object.assign({ type: 'kit.row', id: id }, o);
+}
+
+function kitTopBar(id, opts) {
+  var o = opts && typeof opts === 'object' ? opts : {};
+  return Object.assign({ type: 'kit.topBar', id: id }, o);
+}
+
+function kitCategoryBar(id, opts) {
+  var o = opts && typeof opts === 'object' ? opts : {};
+  return Object.assign({ type: 'kit.categoryBar', id: id }, o);
+}
+
+/** Generic node — any foundation type string + props/children. */
+function kitNode(type, id, opts, children) {
+  var o = opts && typeof opts === 'object' ? opts : {};
+  var node = Object.assign({ type: String(type || '').trim(), id: id }, o);
+  if (children && children.length) node.children = children;
+  return node;
+}
+
+/** Prepared page: top chrome + side rail + body (optional shortcut). */
+function kitColumnsHeader(id, opts, children) {
+  var o = opts && typeof opts === 'object' ? opts : {};
+  return Object.assign(
+    { type: 'columnsHeader', id: id, children: children || [] },
+    o,
+  );
+}
+
+/** Prepared page: top + kind strip + expand grid (optional shortcut). */
+function kitTopBody(id, opts, children) {
+  var o = opts && typeof opts === 'object' ? opts : {};
+  return Object.assign(
+    { type: 'topBody', id: id, children: children || [] },
+    o,
+  );
+}
+
+/** Prepared page: menu? + tabs + cards (optional shortcut). */
+function kitTabsCards(id, opts, children) {
+  var o = opts && typeof opts === 'object' ? opts : {};
+  return Object.assign(
+    { type: 'tabsCards', id: id, children: children || [] },
+    o,
+  );
 }
 
 // Pack `filters` action — details hero play row (`play[]` in filters payload).
