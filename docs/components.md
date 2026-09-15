@@ -36,7 +36,7 @@ Source tree (host): `packages/forja_foundation/lib/{components,widgets,blocks,br
 | type | Foundation | Notes |
 |------|------------|--------|
 | `kit.topBar` | `CatalogTopChrome` | `actions[]` |
-| `kit.categoryBar` | `CatalogChipBar` / `CatalogSideRail` | `orientation: 'vertical'` → side rail |
+| `kit.categoryBar` | `CatalogChipBar` / `CatalogSideRail` / `CatalogCategoryRail` | `orientation: 'vertical'` → side rail; `features` → pin / reorder / Favorites widgets |
 | `kit.menu` | chips / `ForjaShellChip` | selectable wrap, `toggle` |
 | `kit.tabs` | `CatalogChipBar` | status/segment strip |
 | `vertical_filters` | shell rail registry | body paints empty; options for provider rail |
@@ -79,6 +79,16 @@ Source tree (host): `packages/forja_foundation/lib/{components,widgets,blocks,br
 | `bleedDownOffset` | Extra backdrop under bleed rail | `homePageBottomSectionDownOffset` |
 
 ShellTokens = Forja look when a key is absent. Another pack may set `tone: secondary` or a different `gap` without host changes.
+
+**`kit.categoryBar` features** (vertical Live IPTV rail):
+
+| Prop | Meaning |
+|------|---------|
+| `features.pin` | Show pin control; host persists order via store engine |
+| `features.reorder` | Delayed drag (desktop) / hold-OK float (TV) when sort is playlist |
+| `features.widgets` | `['favorites','watched']` → synthetic Favorites / Already watched rows (`__favorites__` / `__watched__`) |
+
+Host injects `favorites`, `watched`, `pinnedCats`, `categoryOrder` into feed params. Pack filters on `categoryId`.
 
 **Not pack-styled:** nav rail, empty-shell frame, toasts, TV focus policy, playback engines.
 

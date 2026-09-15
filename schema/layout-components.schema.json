@@ -26,12 +26,12 @@
     },
     {
       "type": "kit.categoryBar",
-      "foundation": "CatalogChipBar / CatalogSideRail",
+      "foundation": "CatalogChipBar / CatalogSideRail / CatalogCategoryRail",
       "tier": "layout",
       "status": "mounted",
       "helper": "kitCategoryBar",
       "aliases": ["categoryBar", "kit.category_bar", "kinds"],
-      "props": ["items", "default", "orientation", "axis", "vertical", "width"]
+      "props": ["items", "default", "orientation", "axis", "vertical", "width", "features", "source", "dynamic"]
     },
     {
       "type": "kit.menu",
@@ -679,12 +679,6 @@
     {
       "foundation": "DetailsTrailersSection",
       "path": "widgets/details/trailers_section.dart",
-      "tier": "widget",
-      "status": "not_mounted"
-    },
-    {
-      "foundation": "DetailsRecommendationsSection",
-      "path": "widgets/details/recommendations_section.dart",
       "tier": "widget",
       "status": "not_mounted"
     },
