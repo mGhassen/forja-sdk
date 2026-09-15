@@ -2,9 +2,13 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://forja.app/sdk/schema/layout-components.schema.json",
   "title": "Forja foundation components catalog",
-  "description": "Full forja_foundation inventory for pack authors. status=mounted → PackPaintTree accepts type today. status=not_mounted → exists in DS, not pack-JSON yet. See docs/components.md.",
+  "description": "Full forja_foundation inventory for pack authors. status=mounted \u2192 PackPaintTree accepts type today. status=shell_forbidden \u2192 host chassis / never pack-styled. status=not_mounted \u2192 transitional only. See docs/components.md.",
   "version": 2,
-  "statusValues": ["mounted", "not_mounted"],
+  "statusValues": [
+    "mounted",
+    "not_mounted",
+    "shell_forbidden"
+  ],
   "components": [
     {
       "type": "kit.stack",
@@ -12,8 +16,16 @@
       "tier": "layout",
       "status": "mounted",
       "helper": "kitStack",
-      "aliases": ["stack"],
-      "props": ["children", "widgets", "expand", "expandLast", "axis"]
+      "aliases": [
+        "stack"
+      ],
+      "props": [
+        "children",
+        "widgets",
+        "expand",
+        "expandLast",
+        "axis"
+      ]
     },
     {
       "type": "kit.topBar",
@@ -21,8 +33,18 @@
       "tier": "layout",
       "status": "mounted",
       "helper": "kitTopBar",
-      "aliases": ["topBar", "kit.top_bar"],
-      "props": ["actions", "title", "label"]
+      "aliases": [
+        "topBar",
+        "kit.top_bar"
+      ],
+      "props": [
+        "actions",
+        "title",
+        "label",
+        "height",
+        "pad",
+        "padding"
+      ]
     },
     {
       "type": "kit.categoryBar",
@@ -30,8 +52,24 @@
       "tier": "layout",
       "status": "mounted",
       "helper": "kitCategoryBar",
-      "aliases": ["categoryBar", "kit.category_bar", "kinds"],
-      "props": ["items", "default", "orientation", "axis", "vertical", "width", "features", "source", "dynamic"]
+      "aliases": [
+        "categoryBar",
+        "kit.category_bar",
+        "kinds"
+      ],
+      "props": [
+        "items",
+        "default",
+        "orientation",
+        "axis",
+        "vertical",
+        "width",
+        "features",
+        "source",
+        "dynamic",
+        "pad",
+        "padding"
+      ]
     },
     {
       "type": "kit.menu",
@@ -39,8 +77,16 @@
       "tier": "layout",
       "status": "mounted",
       "helper": "kitMenu",
-      "aliases": ["menu"],
-      "props": ["items", "toggle"]
+      "aliases": [
+        "menu"
+      ],
+      "props": [
+        "items",
+        "toggle",
+        "pad",
+        "padding",
+        "gap"
+      ]
     },
     {
       "type": "kit.tabs",
@@ -48,8 +94,16 @@
       "tier": "layout",
       "status": "mounted",
       "helper": "kitTabs",
-      "aliases": ["tabs"],
-      "props": ["tabs", "items", "default"]
+      "aliases": [
+        "tabs"
+      ],
+      "props": [
+        "tabs",
+        "items",
+        "default",
+        "pad",
+        "padding"
+      ]
     },
     {
       "type": "kit.list",
@@ -57,7 +111,21 @@
       "tier": "layout",
       "status": "mounted",
       "helper": "kitList",
-      "props": ["items", "style", "kindMenu", "statusTab", "source", "load", "gap", "pad", "cardKind", "emptyTitle", "emptyDescription", "open", "openSetting"]
+      "props": [
+        "items",
+        "style",
+        "kindMenu",
+        "statusTab",
+        "source",
+        "load",
+        "gap",
+        "pad",
+        "cardKind",
+        "emptyTitle",
+        "emptyDescription",
+        "open",
+        "openSetting"
+      ]
     },
     {
       "type": "kit.row",
@@ -65,47 +133,117 @@
       "tier": "layout",
       "status": "mounted",
       "helper": "kitRow",
-      "aliases": ["rail", "ranked"],
-      "props": ["title", "items", "style", "load", "aspect", "gap", "rankedGap", "pad", "titlePad", "hideWhenBleed", "focusUp", "focusDown"]
+      "aliases": [
+        "rail",
+        "ranked"
+      ],
+      "props": [
+        "title",
+        "items",
+        "style",
+        "load",
+        "aspect",
+        "gap",
+        "rankedGap",
+        "pad",
+        "titlePad",
+        "hideWhenBleed",
+        "focusUp",
+        "focusDown",
+        "itemWidth",
+        "itemHeight",
+        "height"
+      ]
     },
     {
       "type": "hero",
       "foundation": "CinematicHero",
       "tier": "layout",
       "status": "mounted",
-      "aliases": ["cinematic_hero"],
-      "props": ["items", "title", "bleed", "load", "actions", "slideCap", "bleedDownOffset", "focusDown"]
+      "aliases": [
+        "cinematic_hero"
+      ],
+      "props": [
+        "items",
+        "title",
+        "bleed",
+        "load",
+        "actions",
+        "slideCap",
+        "bleedDownOffset",
+        "focusDown",
+        "heightFraction",
+        "height",
+        "kenBurns"
+      ]
     },
     {
       "type": "mood",
       "foundation": "MoodSection",
       "tier": "layout",
       "status": "mounted",
-      "props": ["title", "options", "load", "rowHeight", "pad", "titlePad"]
+      "props": [
+        "title",
+        "options",
+        "load",
+        "rowHeight",
+        "pad",
+        "titlePad",
+        "gap"
+      ]
     },
     {
       "type": "continue",
       "foundation": "ContinueSection",
       "tier": "layout",
       "status": "mounted",
-      "aliases": ["host.continue"],
-      "props": ["mergeHomeWatchHistory", "cardWidth", "cardHeight", "gap", "pad", "titlePad"]
+      "aliases": [
+        "host.continue"
+      ],
+      "props": [
+        "mergeHomeWatchHistory",
+        "cardWidth",
+        "cardHeight",
+        "gap",
+        "pad",
+        "titlePad"
+      ]
     },
     {
       "type": "because",
       "foundation": "BecauseSection",
       "tier": "layout",
       "status": "mounted",
-      "aliases": ["host.because"],
-      "props": ["load", "heading", "seedPoster", "canShuffle", "items", "pad", "titlePad"]
+      "aliases": [
+        "host.because"
+      ],
+      "props": [
+        "load",
+        "heading",
+        "seedPoster",
+        "canShuffle",
+        "items",
+        "pad",
+        "titlePad",
+        "gap",
+        "cardWidth",
+        "cardHeight"
+      ]
     },
     {
       "type": "vertical_filters",
       "foundation": "VerticalFiltersRegistry (shell rail)",
       "tier": "layout",
       "status": "mounted",
-      "aliases": ["host.vertical_filters", "watch_providers"],
-      "props": ["options", "showSelectedInTopBar"]
+      "aliases": [
+        "host.vertical_filters",
+        "watch_providers"
+      ],
+      "props": [
+        "options",
+        "showSelectedInTopBar"
+      ],
+      "note": "Shell rail inset stays host \u2014 product behavior issue 279"
     },
     {
       "type": "columnsHeader",
@@ -113,7 +251,21 @@
       "tier": "block",
       "status": "mounted",
       "helper": "kitColumnsHeader",
-      "props": ["actions", "sideItems", "sideWidth", "sideOnLeading", "children"]
+      "props": [
+        "actions",
+        "sideItems",
+        "sideWidth",
+        "sideOnLeading",
+        "sideGap",
+        "selectedSideId",
+        "defaultSideId",
+        "title",
+        "emptyTitle",
+        "emptyDescription",
+        "backgroundColor",
+        "items",
+        "children"
+      ]
     },
     {
       "type": "topBody",
@@ -121,7 +273,19 @@
       "tier": "block",
       "status": "mounted",
       "helper": "kitTopBody",
-      "props": ["actions", "kindItems", "cardKind", "children"]
+      "props": [
+        "actions",
+        "kindItems",
+        "cardKind",
+        "selectedKindId",
+        "defaultKindId",
+        "title",
+        "emptyTitle",
+        "emptyDescription",
+        "backgroundColor",
+        "items",
+        "children"
+      ]
     },
     {
       "type": "tabsCards",
@@ -129,21 +293,39 @@
       "tier": "block",
       "status": "mounted",
       "helper": "kitTabsCards",
-      "props": ["menuItems", "tabItems", "children"]
+      "props": [
+        "menuItems",
+        "tabItems",
+        "selectedMenuId",
+        "selectedTabId",
+        "defaultTabId",
+        "emptyTitle",
+        "emptyDescription",
+        "backgroundColor",
+        "items",
+        "children"
+      ]
     },
     {
       "type": "catalogBody",
       "foundation": "CatalogBody",
       "tier": "block",
       "status": "mounted",
-      "props": ["bottomGap", "children"]
+      "props": [
+        "bottomGap",
+        "children"
+      ]
     },
     {
       "type": "search",
       "foundation": "CatalogSearchPage",
       "tier": "block",
       "status": "mounted",
-      "props": ["hintText", "backdropUrl", "backgroundColor"]
+      "props": [
+        "hintText",
+        "backdropUrl",
+        "backgroundColor"
+      ]
     },
     {
       "type": "details",
@@ -211,7 +393,10 @@
       "tier": "block",
       "status": "mounted",
       "helper": "kitNode",
-      "props": ["title", "emptyMessage"]
+      "props": [
+        "title",
+        "emptyMessage"
+      ]
     },
     {
       "type": "shell",
@@ -219,7 +404,11 @@
       "tier": "block",
       "status": "mounted",
       "helper": "kitNode",
-      "props": ["sideRailWidth", "children"]
+      "props": [
+        "sideRailWidth",
+        "railOnLeading",
+        "children"
+      ]
     },
     {
       "type": "empty",
@@ -227,7 +416,11 @@
       "tier": "block",
       "status": "mounted",
       "helper": "kitNode",
-      "props": ["title", "description"]
+      "props": [
+        "title",
+        "description",
+        "size"
+      ]
     },
     {
       "type": "posterCard",
@@ -235,9 +428,22 @@
       "tier": "paint",
       "status": "mounted",
       "helper": "hubPaintPoster",
-      "aliases": ["poster"],
+      "aliases": [
+        "poster"
+      ],
       "paintOnly": true,
-      "props": ["title", "imageUrl", "posterUrl", "subtitle", "rating", "rank", "badge"]
+      "props": [
+        "title",
+        "imageUrl",
+        "posterUrl",
+        "subtitle",
+        "rating",
+        "rank",
+        "badge",
+        "width",
+        "height",
+        "aspect"
+      ]
     },
     {
       "type": "eventCard",
@@ -245,7 +451,9 @@
       "tier": "paint",
       "status": "mounted",
       "helper": "hubPaintEvent",
-      "aliases": ["event"],
+      "aliases": [
+        "event"
+      ],
       "paintOnly": true,
       "props": [
         "title",
@@ -254,656 +462,1938 @@
         "awayTeam",
         "timeLabel",
         "live",
-        "viewers"
+        "viewers",
+        "width",
+        "height",
+        "tvDensity"
       ]
     },
-
     {
+      "type": "button",
       "foundation": "Button",
       "path": "components/button.dart",
       "tier": "component",
-      "status": "not_mounted"
+      "status": "mounted",
+      "props": [
+        "label",
+        "icon",
+        "variant",
+        "size",
+        "loading",
+        "expand",
+        "color",
+        "height",
+        "compact"
+      ]
     },
     {
+      "type": "buttonGroup",
       "foundation": "ButtonGroup",
       "path": "components/button_group.dart",
       "tier": "component",
-      "status": "not_mounted"
+      "status": "mounted",
+      "props": [
+        "spacing",
+        "children"
+      ]
     },
     {
+      "type": "verticalMenu",
       "foundation": "VerticalMenu",
       "path": "components/vertical_menu.dart",
       "tier": "component",
-      "status": "not_mounted"
+      "status": "mounted",
+      "props": [
+        "width",
+        "padding",
+        "backgroundColor",
+        "items"
+      ]
     },
     {
+      "type": "switch",
       "foundation": "Switch",
       "path": "components/switch.dart",
       "tier": "component",
-      "status": "not_mounted"
+      "status": "mounted",
+      "props": [
+        "value",
+        "label",
+        "scale"
+      ]
     },
     {
+      "type": "slider",
       "foundation": "Slider",
       "path": "components/slider.dart",
       "tier": "component",
-      "status": "not_mounted"
+      "status": "mounted",
+      "props": [
+        "value",
+        "min",
+        "max",
+        "size"
+      ]
     },
     {
+      "type": "input",
       "foundation": "Input",
       "path": "components/input.dart",
       "tier": "component",
-      "status": "not_mounted"
+      "status": "mounted",
+      "props": [
+        "hintText",
+        "variant",
+        "size",
+        "enabled",
+        "value"
+      ]
     },
     {
+      "type": "field",
       "foundation": "Field",
       "path": "components/field.dart",
       "tier": "component",
-      "status": "not_mounted"
+      "status": "mounted",
+      "props": [
+        "label",
+        "hintText",
+        "size"
+      ]
     },
     {
+      "type": "textarea",
       "foundation": "Textarea",
       "path": "components/textarea.dart",
       "tier": "component",
-      "status": "not_mounted"
+      "status": "mounted",
+      "props": [
+        "hintText",
+        "size",
+        "enabled",
+        "value"
+      ]
     },
     {
+      "type": "inputGroup",
       "foundation": "InputGroup",
       "path": "components/input_group.dart",
       "tier": "component",
-      "status": "not_mounted"
+      "status": "mounted",
+      "props": [
+        "children"
+      ]
     },
     {
+      "type": "searchField",
       "foundation": "SearchField",
       "path": "components/search_field.dart",
       "tier": "component",
-      "status": "not_mounted"
+      "status": "mounted",
+      "props": [
+        "hintText",
+        "size",
+        "enabled",
+        "value"
+      ]
     },
     {
+      "type": "select",
       "foundation": "Select",
       "path": "components/select.dart",
       "tier": "component",
-      "status": "not_mounted"
+      "status": "mounted",
+      "props": [
+        "options",
+        "value",
+        "label"
+      ]
     },
     {
+      "type": "checkbox",
       "foundation": "Checkbox",
       "path": "components/checkbox.dart",
       "tier": "component",
-      "status": "not_mounted"
+      "status": "mounted",
+      "props": [
+        "value",
+        "label"
+      ]
     },
     {
+      "type": "radio",
       "foundation": "Radio",
       "path": "components/radio.dart",
       "tier": "component",
-      "status": "not_mounted"
+      "status": "mounted",
+      "props": [
+        "value",
+        "label",
+        "groupValue"
+      ]
     },
     {
+      "type": "toggle",
       "foundation": "Toggle",
       "path": "components/toggle.dart",
       "tier": "component",
-      "status": "not_mounted"
+      "status": "mounted",
+      "props": [
+        "value",
+        "label",
+        "size"
+      ]
     },
     {
+      "type": "segmentedControl",
       "foundation": "SegmentedControl",
       "path": "components/segmented.dart",
       "tier": "component",
-      "status": "not_mounted"
+      "status": "mounted",
+      "props": [
+        "options",
+        "value"
+      ]
     },
     {
+      "type": "badge",
       "foundation": "Badge",
       "path": "components/badge.dart",
       "tier": "component",
-      "status": "not_mounted"
+      "status": "mounted",
+      "props": [
+        "label",
+        "variant",
+        "size"
+      ]
     },
     {
+      "type": "label",
       "foundation": "Label",
       "path": "components/label.dart",
       "tier": "component",
-      "status": "not_mounted"
+      "status": "mounted",
+      "props": [
+        "text",
+        "size"
+      ]
     },
     {
+      "type": "alert",
       "foundation": "Alert",
       "path": "components/alert.dart",
       "tier": "component",
-      "status": "not_mounted"
+      "status": "mounted",
+      "props": [
+        "title",
+        "description",
+        "variant"
+      ]
     },
     {
+      "type": "forjaDialog",
       "foundation": "ForjaDialog",
       "path": "components/dialog.dart",
       "tier": "component",
-      "status": "not_mounted"
+      "status": "mounted",
+      "props": [
+        "title",
+        "description",
+        "variant"
+      ]
     },
     {
+      "type": "sheet",
       "foundation": "Sheet",
       "path": "components/sheet.dart",
       "tier": "component",
-      "status": "not_mounted"
+      "status": "mounted",
+      "props": [
+        "title",
+        "description"
+      ]
     },
     {
       "foundation": "Toast",
       "path": "components/toast.dart",
       "tier": "component",
-      "status": "not_mounted"
+      "status": "shell_forbidden",
+      "note": "Toast stacking + presentation host-owned",
+      "type": "toast"
     },
     {
+      "type": "emptyAtom",
       "foundation": "Empty",
       "path": "components/empty.dart",
       "tier": "component",
-      "status": "not_mounted"
+      "status": "mounted",
+      "props": [
+        "title",
+        "description",
+        "icon",
+        "size"
+      ]
     },
     {
+      "type": "separator",
       "foundation": "Separator",
       "path": "components/separator.dart",
       "tier": "component",
-      "status": "not_mounted"
+      "status": "mounted",
+      "props": [
+        "orientation",
+        "thickness",
+        "color"
+      ]
     },
     {
+      "type": "avatar",
       "foundation": "Avatar",
       "path": "components/avatar.dart",
       "tier": "component",
-      "status": "not_mounted"
+      "status": "mounted",
+      "props": [
+        "imageUrl",
+        "initials",
+        "size"
+      ]
     },
     {
+      "type": "skeleton",
       "foundation": "Skeleton",
       "path": "components/skeleton.dart",
       "tier": "component",
-      "status": "not_mounted"
+      "status": "mounted",
+      "props": [
+        "width",
+        "height",
+        "lines"
+      ]
     },
     {
+      "type": "progress",
       "foundation": "Progress",
       "path": "components/progress.dart",
       "tier": "component",
-      "status": "not_mounted"
+      "status": "mounted",
+      "props": [
+        "value",
+        "size",
+        "strokeWidth",
+        "color"
+      ]
     },
     {
+      "type": "spinner",
       "foundation": "Spinner",
       "path": "components/spinner.dart",
       "tier": "component",
-      "status": "not_mounted"
+      "status": "mounted",
+      "props": [
+        "size",
+        "color"
+      ]
     },
     {
+      "type": "tooltip",
       "foundation": "Tooltip",
       "path": "components/tooltip.dart",
       "tier": "component",
-      "status": "not_mounted"
+      "status": "mounted",
+      "props": [
+        "message",
+        "child"
+      ]
     },
     {
+      "type": "accordion",
       "foundation": "Accordion",
       "path": "components/accordion.dart",
       "tier": "component",
-      "status": "not_mounted"
+      "status": "mounted",
+      "props": [
+        "items",
+        "title"
+      ]
     },
     {
+      "type": "breadcrumb",
       "foundation": "Breadcrumb",
       "path": "components/breadcrumb.dart",
       "tier": "component",
-      "status": "not_mounted"
+      "status": "mounted",
+      "props": [
+        "items"
+      ]
     },
     {
+      "type": "pageDots",
       "foundation": "PageDots",
       "path": "components/pagination.dart",
       "tier": "component",
-      "status": "not_mounted"
+      "status": "mounted",
+      "props": [
+        "count",
+        "index",
+        "size",
+        "spacing"
+      ]
     },
     {
+      "type": "listTile",
       "foundation": "ListTile",
       "path": "components/list_tile.dart",
       "tier": "component",
-      "status": "not_mounted"
+      "status": "mounted",
+      "props": [
+        "title",
+        "subtitle",
+        "density"
+      ]
     },
     {
+      "type": "item",
       "foundation": "Item",
       "path": "components/item.dart",
       "tier": "component",
-      "status": "not_mounted"
+      "status": "mounted",
+      "props": [
+        "title",
+        "subtitle"
+      ]
     },
     {
+      "type": "kbd",
       "foundation": "Kbd",
       "path": "components/kbd.dart",
       "tier": "component",
-      "status": "not_mounted"
+      "status": "mounted",
+      "props": [
+        "keys",
+        "text"
+      ]
     },
     {
+      "type": "heading",
       "foundation": "Heading",
       "path": "components/typography.dart",
       "tier": "component",
-      "status": "not_mounted"
+      "status": "mounted",
+      "props": [
+        "text",
+        "level",
+        "size",
+        "color"
+      ]
     },
     {
+      "type": "body",
       "foundation": "Body",
       "path": "components/typography.dart",
       "tier": "component",
-      "status": "not_mounted"
+      "status": "mounted",
+      "props": [
+        "text",
+        "tone",
+        "size",
+        "color"
+      ]
     },
     {
       "foundation": "FocusableTap",
       "path": "components/focusable_tap.dart",
       "tier": "component",
-      "status": "not_mounted"
+      "status": "shell_forbidden",
+      "note": "TV focus host glue",
+      "type": "focusableTap"
     },
     {
+      "type": "posterFrame",
       "foundation": "PosterFrame",
       "path": "components/poster_frame.dart",
       "tier": "component",
-      "status": "not_mounted"
+      "status": "mounted",
+      "props": [
+        "aspectRatio",
+        "width",
+        "borderRadius",
+        "imageUrl"
+      ]
     },
     {
+      "type": "networkImage",
       "foundation": "ForjaNetworkImage",
       "path": "components/network_image.dart",
       "tier": "component",
-      "status": "not_mounted"
+      "status": "mounted",
+      "props": [
+        "url",
+        "width",
+        "height",
+        "borderRadius"
+      ]
     },
     {
+      "type": "settledNetworkImage",
       "foundation": "SettledNetworkImage",
       "path": "components/settled_network_image.dart",
       "tier": "component",
-      "status": "not_mounted"
+      "status": "mounted",
+      "props": [
+        "url",
+        "width",
+        "height"
+      ]
     },
     {
+      "type": "moodCircle",
       "foundation": "MoodCircle",
       "path": "components/mood_circle.dart",
       "tier": "component",
-      "status": "not_mounted"
+      "status": "mounted",
+      "props": [
+        "label",
+        "imageUrl",
+        "selected",
+        "size",
+        "accent"
+      ]
     },
-
     {
+      "type": "posterRail",
       "foundation": "PosterRail",
       "path": "widgets/catalog/poster_rail.dart",
       "tier": "widget",
-      "status": "not_mounted",
+      "status": "mounted",
+      "props": [
+        "itemWidth",
+        "itemHeight",
+        "height",
+        "padding",
+        "gap",
+        "items"
+      ],
       "note": "Also reached via mounted kit.row"
     },
     {
+      "type": "posterCardPaint",
       "foundation": "PosterCard",
       "path": "widgets/catalog/poster_card.dart",
       "tier": "widget",
-      "status": "not_mounted",
+      "status": "mounted",
+      "props": [
+        "title",
+        "imageUrl",
+        "width",
+        "height",
+        "aspect",
+        "borderRadius",
+        "titleFontSize"
+      ],
       "note": "Paint via posterCard"
     },
     {
+      "type": "homeLoadingSkeleton",
       "foundation": "HomeLoadingSkeleton",
       "path": "widgets/catalog/home_loading_skeleton.dart",
       "tier": "widget",
-      "status": "not_mounted"
+      "status": "mounted",
+      "props": [
+        "width",
+        "height"
+      ]
     },
     {
+      "type": "kenBurnsBackdrop",
       "foundation": "KenBurnsBackdrop",
       "path": "widgets/catalog/ken_burns_backdrop.dart",
       "tier": "widget",
-      "status": "not_mounted"
+      "status": "mounted",
+      "props": [
+        "urls",
+        "blur",
+        "minScale",
+        "maxScale",
+        "fit"
+      ]
     },
     {
+      "type": "rotatingHeroBackdrop",
       "foundation": "RotatingHeroBackdrop",
       "path": "widgets/catalog/rotating_hero_backdrop.dart",
       "tier": "widget",
-      "status": "not_mounted"
+      "status": "mounted",
+      "props": [
+        "urls",
+        "showColorTint",
+        "fit"
+      ]
     },
     {
+      "type": "categoryCircleMeta",
       "foundation": "CategoryCircleMeta",
       "path": "widgets/catalog/category_circle_meta.dart",
       "tier": "widget",
-      "status": "not_mounted"
+      "status": "mounted",
+      "props": [
+        "label",
+        "size",
+        "imageUrl",
+        "selected"
+      ]
     },
     {
-      "foundation": "ServerGrid",
+      "type": "serverGrid",
+      "foundation": "ForjaServerGrid",
       "path": "widgets/catalog/server_grid.dart",
       "tier": "widget",
-      "status": "not_mounted"
+      "status": "mounted",
+      "props": [
+        "items",
+        "gap"
+      ]
     },
     {
+      "type": "catalogSearchScreen",
       "foundation": "CatalogSearchScreen",
       "path": "widgets/catalog/catalog_search_screen.dart",
       "tier": "widget",
-      "status": "not_mounted"
+      "status": "mounted",
+      "props": [
+        "hint",
+        "compact"
+      ]
     },
     {
+      "type": "catalogSearchResultCard",
       "foundation": "CatalogSearchResultCard",
       "path": "widgets/catalog/catalog_search_result_card.dart",
       "tier": "widget",
-      "status": "not_mounted"
+      "status": "mounted",
+      "props": [
+        "title",
+        "subtitle",
+        "imageUrl"
+      ]
     },
     {
+      "type": "catalogSearchFilters",
       "foundation": "CatalogSearchFilters",
       "path": "widgets/catalog/catalog_search_filters.dart",
       "tier": "widget",
-      "status": "not_mounted"
+      "status": "mounted",
+      "props": [
+        "filters",
+        "compact"
+      ]
     },
     {
+      "type": "catalogSearchFilterLens",
       "foundation": "CatalogSearchFilterLens",
       "path": "widgets/catalog/catalog_search_filter_lens.dart",
       "tier": "widget",
-      "status": "not_mounted"
+      "status": "mounted",
+      "props": [
+        "compact"
+      ]
     },
     {
+      "type": "recentSearchHelperTile",
       "foundation": "RecentSearchHelperTile",
       "path": "widgets/catalog/recent_search_helper_tile.dart",
       "tier": "widget",
-      "status": "not_mounted"
+      "status": "mounted",
+      "props": [
+        "label"
+      ]
     },
     {
+      "type": "continueCard",
       "foundation": "ContinueWatchingCard",
       "path": "widgets/catalog/continue_watching_card.dart",
       "tier": "widget",
-      "status": "not_mounted"
+      "status": "mounted",
+      "props": [
+        "title",
+        "imageUrl",
+        "width",
+        "height",
+        "progress",
+        "borderRadius"
+      ]
     },
     {
+      "type": "detailsHero",
       "foundation": "DetailsHero",
       "path": "widgets/details/details_hero.dart",
       "tier": "widget",
-      "status": "not_mounted",
+      "status": "mounted",
+      "props": [
+        "title",
+        "backdropUrl",
+        "height",
+        "enableKenBurns",
+        "contentScrim",
+        "tvDensity",
+        "overview"
+      ],
       "note": "Used inside mounted details / matchDetails"
     },
     {
+      "type": "detailsBody",
       "foundation": "DetailsBody",
       "path": "widgets/details/details_body.dart",
       "tier": "widget",
-      "status": "not_mounted"
+      "status": "mounted",
+      "props": [
+        "backgroundColor",
+        "topSpacing",
+        "children"
+      ]
     },
     {
+      "type": "detailsScrollPage",
       "foundation": "DetailsScrollPage",
       "path": "widgets/details/details_scroll_page.dart",
       "tier": "widget",
-      "status": "not_mounted"
+      "status": "mounted",
+      "props": [
+        "backgroundColor",
+        "children"
+      ]
     },
     {
+      "type": "detailsRails",
       "foundation": "DetailsRails",
       "path": "widgets/details/details_rails.dart",
       "tier": "widget",
-      "status": "not_mounted"
+      "status": "mounted",
+      "props": [
+        "rowHeight",
+        "compactTop",
+        "items"
+      ]
     },
     {
+      "type": "playRow",
       "foundation": "PlayRow",
       "path": "widgets/details/play_row.dart",
       "tier": "widget",
-      "status": "not_mounted"
+      "status": "mounted",
+      "props": [
+        "height"
+      ]
     },
     {
+      "type": "factsPanel",
       "foundation": "FactsPanel",
       "path": "widgets/details/facts_panel.dart",
       "tier": "widget",
-      "status": "not_mounted"
+      "status": "mounted",
+      "props": [
+        "facts",
+        "maxLines"
+      ]
     },
     {
+      "type": "metaLine",
       "foundation": "MetaLine",
       "path": "widgets/details/meta_line.dart",
       "tier": "widget",
-      "status": "not_mounted"
+      "status": "mounted",
+      "props": [
+        "parts",
+        "gap"
+      ]
     },
     {
+      "type": "heroTitle",
       "foundation": "HeroTitle",
       "path": "widgets/details/hero_title.dart",
       "tier": "widget",
-      "status": "not_mounted"
+      "status": "mounted",
+      "props": [
+        "title",
+        "logoUrl",
+        "slotHeight"
+      ]
     },
     {
+      "type": "heroOverview",
       "foundation": "HeroOverviewText",
       "path": "widgets/details/hero_overview_text.dart",
       "tier": "widget",
-      "status": "not_mounted"
+      "status": "mounted",
+      "props": [
+        "text",
+        "maxLines"
+      ]
     },
     {
+      "type": "heroContentScrim",
       "foundation": "KitHeroContentScrim",
       "path": "widgets/details/hero_content_scrim.dart",
       "tier": "widget",
-      "status": "not_mounted"
+      "status": "mounted",
+      "props": [
+        "enabled"
+      ]
     },
     {
+      "type": "heroWatchProviders",
       "foundation": "HeroWatchProvidersRow",
       "path": "widgets/details/watch_providers_row.dart",
       "tier": "widget",
-      "status": "not_mounted"
+      "status": "mounted",
+      "props": [
+        "providers"
+      ]
     },
     {
+      "type": "heroPillPlay",
       "foundation": "HeroPillPlaySurface",
       "path": "widgets/details/hero_pill_surfaces.dart",
       "tier": "widget",
-      "status": "not_mounted"
+      "status": "mounted",
+      "props": [
+        "label",
+        "tone"
+      ]
     },
     {
+      "type": "listStatusPin",
       "foundation": "ListStatusPin",
       "path": "widgets/details/list_status_pin.dart",
       "tier": "widget",
-      "status": "not_mounted"
+      "status": "mounted",
+      "props": [
+        "compact",
+        "status"
+      ]
     },
     {
+      "type": "listStatusHero",
       "foundation": "ListStatusHero",
       "path": "widgets/details/list_status_hero.dart",
       "tier": "widget",
-      "status": "not_mounted"
+      "status": "mounted",
+      "props": [
+        "compact",
+        "status"
+      ]
     },
     {
+      "type": "detailsCast",
       "foundation": "DetailsCastSection",
       "path": "widgets/details/cast_section.dart",
       "tier": "widget",
-      "status": "not_mounted"
+      "status": "mounted",
+      "props": [
+        "items",
+        "rowHeight",
+        "gap"
+      ]
     },
     {
+      "type": "detailsTrailers",
       "foundation": "DetailsTrailersSection",
       "path": "widgets/details/trailers_section.dart",
       "tier": "widget",
-      "status": "not_mounted"
+      "status": "mounted",
+      "props": [
+        "items",
+        "rowHeight",
+        "gap"
+      ]
     },
     {
+      "type": "detailsRecommendations",
+      "foundation": "DetailsRailSection",
+      "path": "widgets/details/details_rails.dart",
+      "tier": "widget",
+      "status": "mounted",
+      "props": [
+        "title",
+        "rowHeight",
+        "cardWidth"
+      ],
+      "note": "Recommendations rail paints as DetailsRailSection"
+    },
+    {
+      "type": "tvSeasonEpisodePicker",
       "foundation": "TvSeasonEpisodePicker",
       "path": "widgets/details/tv_season_episode_picker.dart",
       "tier": "widget",
-      "status": "not_mounted"
+      "status": "mounted",
+      "props": [
+        "compact"
+      ]
     },
     {
+      "type": "episodeRangeSelector",
       "foundation": "EpisodeRangeSelector",
       "path": "widgets/details/episode_range_bar.dart",
       "tier": "widget",
-      "status": "not_mounted"
+      "status": "mounted",
+      "props": [
+        "compact"
+      ]
     },
     {
+      "type": "watchProgressBar",
       "foundation": "WatchProgressBar",
       "path": "widgets/details/watch_progress_bar.dart",
       "tier": "widget",
-      "status": "not_mounted"
+      "status": "mounted",
+      "props": [
+        "progress",
+        "accentColor",
+        "compact"
+      ]
     },
     {
+      "type": "watchSeriesProgress",
       "foundation": "WatchSeriesProgress",
       "path": "widgets/details/watch_series_progress.dart",
       "tier": "widget",
-      "status": "not_mounted"
+      "status": "mounted",
+      "props": [
+        "progress",
+        "compact"
+      ]
     },
     {
       "foundation": "TmdbPaintGate",
       "path": "widgets/details/tmdb_paint_gate.dart",
       "tier": "widget",
-      "status": "not_mounted"
+      "status": "shell_forbidden",
+      "note": "Host gate N/A"
     },
     {
+      "type": "shellChip",
       "foundation": "ForjaShellChip",
       "path": "widgets/chrome/shell_chip.dart",
       "tier": "widget",
-      "status": "not_mounted"
+      "status": "mounted",
+      "props": [
+        "label",
+        "selected",
+        "radius",
+        "padding",
+        "fontSize"
+      ]
     },
     {
+      "type": "shellSectionTitle",
       "foundation": "ShellSectionTitle",
       "path": "widgets/chrome/shell_section_title.dart",
       "tier": "widget",
-      "status": "not_mounted"
+      "status": "mounted",
+      "props": [
+        "title",
+        "padding"
+      ]
     },
     {
+      "type": "shellTabHeader",
       "foundation": "ShellTabHeader",
       "path": "widgets/chrome/shell_tab_header.dart",
       "tier": "widget",
-      "status": "not_mounted"
+      "status": "mounted",
+      "props": [
+        "title",
+        "padding"
+      ]
     },
     {
+      "type": "horizontalScroller",
       "foundation": "HorizontalScroller",
       "path": "widgets/chrome/horizontal_scroller.dart",
       "tier": "widget",
-      "status": "not_mounted"
+      "status": "mounted",
+      "props": [
+        "height",
+        "padding",
+        "children"
+      ]
     },
     {
       "foundation": "LogoMenuRail",
       "path": "widgets/chrome/logo_menu_rail.dart",
       "tier": "widget",
-      "status": "not_mounted"
+      "status": "shell_forbidden",
+      "note": "Nav rail \u2014 never pack-styled"
     },
     {
+      "type": "sidePanelOverlay",
       "foundation": "SidePanelOverlay",
       "path": "widgets/chrome/side_panel_overlay.dart",
       "tier": "widget",
-      "status": "not_mounted"
+      "status": "mounted",
+      "props": [
+        "panelWidth",
+        "open",
+        "child"
+      ]
     },
     {
+      "type": "portalListPanel",
       "foundation": "PortalListPanel",
       "path": "widgets/chrome/portal_list_panel.dart",
       "tier": "widget",
-      "status": "mounted"
+      "status": "mounted",
+      "props": [
+        "width",
+        "items"
+      ]
     },
     {
+      "type": "portalListRow",
       "foundation": "PortalListRow",
       "path": "widgets/chrome/portal_list_row.dart",
       "tier": "widget",
-      "status": "mounted"
+      "status": "mounted",
+      "props": [
+        "title",
+        "subtitle"
+      ]
     },
     {
+      "type": "portalsChip",
       "foundation": "PortalsChip",
       "path": "widgets/chrome/portals_chip.dart",
       "tier": "widget",
-      "status": "mounted"
+      "status": "mounted",
+      "props": [
+        "label",
+        "compact",
+        "accent"
+      ]
     },
     {
       "foundation": "SettingsPlayerChrome",
       "path": "widgets/chrome/settings_player_chrome.dart",
       "tier": "widget",
-      "status": "not_mounted"
+      "status": "shell_forbidden",
+      "note": "Settings/player host chrome"
     },
     {
       "foundation": "LayoutScope",
       "path": "widgets/chrome/layout_scope.dart",
       "tier": "widget",
-      "status": "not_mounted",
-      "note": "Host-injected scope, not a pack type"
+      "status": "shell_forbidden",
+      "note": "Host-injected scope"
     },
     {
+      "foundation": "ShellPaintScope",
+      "path": "widgets/chrome/shell_paint_scope.dart",
+      "tier": "widget",
+      "status": "shell_forbidden",
+      "note": "Host-injected TV/focus scope"
+    },
+    {
+      "type": "catalogFilterSheet",
+      "foundation": "CatalogFilterSheet",
+      "path": "widgets/chrome/catalog_filter_sheet.dart",
+      "tier": "widget",
+      "status": "mounted",
+      "props": [
+        "current",
+        "options",
+        "tvFocus",
+        "autofocusFirst"
+      ]
+    },
+    {
+      "type": "filterSheetOption",
+      "foundation": "FilterSheetOption",
+      "path": "widgets/chrome/filter_sheet_option.dart",
+      "tier": "widget",
+      "status": "mounted",
+      "props": [
+        "label",
+        "subtitle",
+        "selected",
+        "icon",
+        "tvFocus",
+        "scaleOnHover"
+      ]
+    },
+    {
+      "type": "sourcesPanel",
       "foundation": "SourcesPanelChrome",
       "path": "widgets/sources/sources_panel_chrome.dart",
       "tier": "widget",
-      "status": "not_mounted"
+      "status": "mounted",
+      "props": [
+        "title",
+        "tabs",
+        "embedded",
+        "tvDensity"
+      ]
     },
     {
+      "type": "panelTabs",
       "foundation": "PanelTabs",
       "path": "widgets/sources/panel_tabs.dart",
       "tier": "widget",
-      "status": "not_mounted"
+      "status": "mounted",
+      "props": [
+        "tabs",
+        "selectedId"
+      ]
     },
     {
-      "foundation": "LiveTvBrowse",
+      "type": "liveTvBrowse",
+      "foundation": "SourcesExpandingSearch",
       "path": "widgets/sources/live_tv_browse.dart",
       "tier": "widget",
-      "status": "not_mounted"
+      "status": "mounted",
+      "props": [
+        "query",
+        "compact",
+        "useTvBrowse"
+      ],
+      "note": "Alias paints SourcesExpandingSearch; prefer sourcesExpandingSearch"
     },
     {
+      "type": "channelGuide",
       "foundation": "ChannelGuide",
       "path": "widgets/guide/channel_guide.dart",
       "tier": "widget",
-      "status": "not_mounted"
+      "status": "mounted",
+      "props": [
+        "compact",
+        "isTv"
+      ]
     },
     {
+      "type": "channelGuidePanel",
       "foundation": "ChannelGuidePanel",
       "path": "widgets/guide/channel_guide_panel.dart",
       "tier": "widget",
-      "status": "not_mounted"
+      "status": "mounted",
+      "props": [
+        "panelInsets",
+        "compact"
+      ]
     },
     {
+      "type": "guideEpgCard",
       "foundation": "GuideEpgCard",
       "path": "widgets/guide/guide_epg_card.dart",
       "tier": "widget",
-      "status": "not_mounted"
+      "status": "mounted",
+      "props": [
+        "title",
+        "compact"
+      ]
     },
     {
+      "type": "channelSearchOverlay",
       "foundation": "ChannelSearchOverlay",
       "path": "widgets/guide/channel_search_overlay.dart",
       "tier": "widget",
-      "status": "not_mounted"
+      "status": "mounted",
+      "props": [
+        "hint",
+        "compact"
+      ]
     },
     {
-      "foundation": "PlayerStatsPanel",
+      "type": "playerStatsPanel",
+      "foundation": "PlayerStatsList",
       "path": "widgets/guide/player_stats_panel.dart",
       "tier": "widget",
-      "status": "not_mounted"
+      "status": "mounted",
+      "props": [
+        "rows",
+        "compact",
+        "width",
+        "height"
+      ],
+      "note": "Mounts PlayerStatsList"
     },
     {
+      "type": "guideBrowseTextField",
       "foundation": "GuideBrowseTextField",
       "path": "widgets/guide/guide_browse_text_field.dart",
       "tier": "widget",
-      "status": "not_mounted"
+      "status": "mounted",
+      "props": [
+        "hint",
+        "compact"
+      ]
     },
     {
-      "foundation": "LoadingDots",
+      "type": "loadingDots",
+      "foundation": "ForjaLoadingDots",
       "path": "widgets/feedback/loading_dots.dart",
       "tier": "widget",
-      "status": "not_mounted"
+      "status": "mounted",
+      "props": [
+        "color",
+        "fontSize"
+      ]
     },
     {
-      "foundation": "FrostedPanel",
+      "type": "frostedPanel",
+      "foundation": "ForjaFrostedPanel",
       "path": "widgets/feedback/frosted_panel.dart",
       "tier": "widget",
-      "status": "not_mounted"
+      "status": "mounted",
+      "props": [
+        "borderRadius",
+        "blur",
+        "enableBlur",
+        "blurSigma",
+        "elevation",
+        "child"
+      ],
+      "note": "Class ForjaFrostedPanel"
     },
     {
+      "type": "fractalGlassGradient",
       "foundation": "FractalGlassGradient",
       "path": "widgets/feedback/fractal_glass_gradient.dart",
       "tier": "widget",
-      "status": "not_mounted"
+      "status": "mounted",
+      "props": []
     },
     {
-      "foundation": "CardPlayOverlay",
+      "type": "cardPlayOverlay",
+      "foundation": "ShellCardPlayOverlay",
       "path": "widgets/feedback/card_play_overlay.dart",
       "tier": "widget",
-      "status": "not_mounted"
+      "status": "mounted",
+      "props": [
+        "iconSize"
+      ]
     },
     {
-      "foundation": "ErrorRetryPanel",
+      "type": "errorRetryPanel",
+      "foundation": "ShellErrorRetryPanel",
       "path": "widgets/feedback/error_retry_panel.dart",
       "tier": "widget",
-      "status": "not_mounted"
+      "status": "mounted",
+      "props": [
+        "message",
+        "statusIconSize"
+      ]
     },
     {
       "foundation": "TvSearchBrowseOverlay",
       "path": "widgets/tv/tv_search_browse_overlay.dart",
       "tier": "widget",
-      "status": "not_mounted"
+      "status": "shell_forbidden",
+      "note": "TV focus policy"
     },
     {
       "foundation": "ListLetterJumpScope",
       "path": "widgets/focus/list_letter_jump_scope.dart",
       "tier": "widget",
-      "status": "not_mounted"
+      "status": "shell_forbidden",
+      "note": "TV focus policy"
     },
     {
+      "type": "searchBlock",
       "foundation": "SearchBlock",
       "path": "blocks/search/search_block.dart",
       "tier": "block",
-      "status": "not_mounted"
+      "status": "mounted",
+      "props": [
+        "hintText",
+        "backdropUrl",
+        "backgroundColor"
+      ]
     },
     {
       "foundation": "EmptyShellFrame",
       "path": "blocks/shell/empty_shell_frame.dart",
       "tier": "block",
-      "status": "not_mounted"
+      "status": "shell_forbidden",
+      "note": "App chassis empty shell"
     },
     {
       "foundation": "ForjaLogo",
       "path": "brand/forja_logo.dart",
       "tier": "brand",
-      "status": "not_mounted"
+      "status": "shell_forbidden",
+      "note": "Brand / nav"
     },
     {
       "foundation": "AnimatedLogo",
       "path": "brand/animated_logo.dart",
       "tier": "brand",
-      "status": "not_mounted"
+      "status": "shell_forbidden",
+      "note": "Brand / nav"
     },
     {
       "foundation": "ForjaProfileAvatar",
       "path": "brand/forja_profile_avatar.dart",
       "tier": "brand",
-      "status": "not_mounted"
+      "status": "shell_forbidden",
+      "note": "Account chrome"
+    },
+    {
+      "foundation": "HubTopBar",
+      "path": "widgets/chrome/hub_top_bar.dart",
+      "tier": "widget",
+      "status": "shell_forbidden",
+      "note": "Host Home chrome \u2260 kit.topBar"
+    },
+    {
+      "type": "eventDenseTile",
+      "foundation": "EventDenseTile",
+      "path": "widgets/catalog/event_dense_tile.dart",
+      "tier": "widget",
+      "status": "mounted",
+      "props": [
+        "title",
+        "meta",
+        "airing",
+        "viewers",
+        "selected",
+        "playable"
+      ]
+    },
+    {
+      "type": "catalogPosterGrid",
+      "foundation": "CatalogPosterGrid",
+      "path": "widgets/chrome/catalog_poster_grid.dart",
+      "tier": "widget",
+      "status": "mounted",
+      "props": [
+        "columns",
+        "cardW",
+        "cardH",
+        "gap",
+        "height",
+        "itemCount"
+      ]
+    },
+    {
+      "type": "catalogDenseList",
+      "foundation": "CatalogDenseList",
+      "path": "widgets/chrome/catalog_dense_list.dart",
+      "tier": "widget",
+      "status": "mounted",
+      "props": [
+        "itemCount",
+        "height",
+        "topPadding",
+        "bottomPadding"
+      ]
+    },
+    {
+      "type": "catalogList",
+      "foundation": "CatalogList",
+      "path": "widgets/chrome/catalog_list.dart",
+      "tier": "widget",
+      "status": "mounted",
+      "props": [
+        "height",
+        "sidePanelOpen",
+        "panelWidth",
+        "sideSplit"
+      ]
+    },
+    {
+      "type": "guideFloatingEpg",
+      "foundation": "GuideFloatingEpg",
+      "path": "widgets/guide/guide_epg_card.dart",
+      "tier": "widget",
+      "status": "mounted",
+      "props": [
+        "maxWidth"
+      ]
+    },
+    {
+      "type": "liveTvScrollbar",
+      "foundation": "LiveTvScrollbar",
+      "path": "widgets/guide/guide_chrome_style.dart",
+      "tier": "widget",
+      "status": "mounted",
+      "props": [
+        "enabled",
+        "child"
+      ]
+    },
+    {
+      "type": "sourcesExpandingSearch",
+      "foundation": "SourcesExpandingSearch",
+      "path": "widgets/sources/live_tv_browse.dart",
+      "tier": "widget",
+      "status": "mounted",
+      "props": [
+        "query",
+        "useTvBrowse",
+        "compact"
+      ]
+    },
+    {
+      "type": "sourcesCategoryRailRow",
+      "foundation": "SourcesCategoryRailRow",
+      "path": "widgets/sources/live_tv_browse.dart",
+      "tier": "widget",
+      "status": "mounted",
+      "props": [
+        "label",
+        "count",
+        "selected",
+        "listIndex"
+      ]
+    },
+    {
+      "type": "catalogChannelCard",
+      "foundation": "CatalogChannelCard",
+      "path": "widgets/catalog/catalog_channel_card.dart",
+      "tier": "widget",
+      "status": "mounted",
+      "props": [
+        "title",
+        "imageUrl",
+        "highlighted",
+        "width",
+        "height",
+        "health"
+      ]
+    },
+    {
+      "type": "catalogEpgGuide",
+      "foundation": "CatalogEpgGuide",
+      "path": "widgets/catalog/catalog_epg_guide.dart",
+      "tier": "widget",
+      "status": "mounted",
+      "props": [
+        "channels",
+        "highlightChannelId",
+        "emptyTitle",
+        "height"
+      ]
+    },
+    {
+      "type": "shellMoodCircle",
+      "foundation": "ShellMoodCircleItem",
+      "path": "widgets/catalog/shell_mood_circle.dart",
+      "tier": "widget",
+      "status": "mounted",
+      "props": [
+        "label",
+        "icon",
+        "accent",
+        "selected",
+        "id"
+      ]
+    },
+    {
+      "type": "certBadge",
+      "foundation": "CertBadge",
+      "path": "widgets/details/meta_line.dart",
+      "tier": "widget",
+      "status": "mounted",
+      "props": [
+        "label"
+      ]
+    },
+    {
+      "type": "ratingBadge",
+      "foundation": "RatingBadge",
+      "path": "widgets/catalog/poster_card.dart",
+      "tier": "widget",
+      "status": "mounted",
+      "props": [
+        "voteAverage",
+        "rating"
+      ]
+    },
+    {
+      "type": "ratingBadgeText",
+      "foundation": "RatingBadgeText",
+      "path": "widgets/catalog/poster_card.dart",
+      "tier": "widget",
+      "status": "mounted",
+      "props": [
+        "rating",
+        "label"
+      ]
+    },
+    {
+      "type": "forjaActionChip",
+      "foundation": "ForjaActionChip",
+      "path": "widgets/chrome/action_chip.dart",
+      "tier": "widget",
+      "status": "mounted",
+      "props": [
+        "label",
+        "icon",
+        "selected",
+        "iconOnly"
+      ]
+    },
+    {
+      "type": "catalogListEmpty",
+      "foundation": "CatalogListEmpty",
+      "path": "widgets/chrome/catalog_dense_list.dart",
+      "tier": "widget",
+      "status": "mounted",
+      "props": [
+        "title",
+        "subtitle",
+        "icon",
+        "topPadding"
+      ]
+    },
+    {
+      "type": "catalogLoadingTicker",
+      "foundation": "CatalogLoadingTicker",
+      "path": "widgets/feedback/catalog_loading_ticker.dart",
+      "tier": "widget",
+      "status": "mounted",
+      "props": [
+        "title",
+        "detail"
+      ]
+    },
+    {
+      "type": "inlineAlert",
+      "foundation": "InlineAlert",
+      "path": "components/alert.dart",
+      "tier": "atom",
+      "status": "mounted",
+      "props": [
+        "title",
+        "description",
+        "variant"
+      ]
+    },
+    {
+      "type": "checkboxGroup",
+      "foundation": "CheckboxGroup",
+      "path": "components/checkbox.dart",
+      "tier": "atom",
+      "status": "mounted",
+      "props": [
+        "spacing",
+        "children"
+      ]
+    },
+    {
+      "type": "toggleGroup",
+      "foundation": "ToggleGroup",
+      "path": "components/toggle.dart",
+      "tier": "atom",
+      "status": "mounted",
+      "props": [
+        "orientation",
+        "spacing",
+        "children"
+      ]
+    },
+    {
+      "type": "skeletonText",
+      "foundation": "SkeletonText",
+      "path": "components/skeleton.dart",
+      "tier": "atom",
+      "status": "mounted",
+      "props": [
+        "lines",
+        "lineHeight",
+        "spacing",
+        "lastLineFraction"
+      ]
+    },
+    {
+      "type": "skeletonPoster",
+      "foundation": "SkeletonPoster",
+      "path": "components/skeleton.dart",
+      "tier": "atom",
+      "status": "mounted",
+      "props": [
+        "width",
+        "aspectRatio"
+      ]
+    },
+    {
+      "type": "listStatusMenuRow",
+      "foundation": "ListStatusMenuRow",
+      "path": "widgets/details/list_status_pin.dart",
+      "tier": "widget",
+      "status": "mounted",
+      "props": [
+        "label",
+        "selected",
+        "icon",
+        "statusColor",
+        "tvFocus"
+      ]
+    },
+    {
+      "type": "listStatusPopup",
+      "foundation": "ListStatusPopupPanel",
+      "path": "widgets/details/list_status_pin.dart",
+      "tier": "widget",
+      "status": "mounted",
+      "props": [
+        "currentStatus",
+        "busy",
+        "tvFocus"
+      ]
+    },
+    {
+      "type": "heroMagnetIcon",
+      "foundation": "HeroMagnetIcon",
+      "path": "widgets/details/hero_pill_surfaces.dart",
+      "tier": "widget",
+      "status": "mounted",
+      "props": [
+        "size",
+        "color"
+      ]
+    },
+    {
+      "type": "detailsUpcomingNotice",
+      "foundation": "DetailsUpcomingNotice",
+      "path": "widgets/details/play_row.dart",
+      "tier": "widget",
+      "status": "mounted",
+      "props": [
+        "releaseDateLabel",
+        "releaseDate"
+      ]
+    },
+    {
+      "type": "interactiveEventCard",
+      "foundation": "InteractiveEventCard",
+      "path": "blocks/catalog/catalog_cards_grid.dart",
+      "tier": "widget",
+      "status": "mounted",
+      "props": [
+        "title",
+        "posterUrl",
+        "width",
+        "height",
+        "live",
+        "selected"
+      ]
+    },
+    {
+      "type": "topBarActions",
+      "foundation": "TopBarActions",
+      "path": "widgets/chrome/top_bar_actions.dart",
+      "tier": "widget",
+      "status": "mounted",
+      "props": [
+        "trailingCount",
+        "height",
+        "children"
+      ]
+    },
+    {
+      "type": "viewButtonGroup",
+      "foundation": "ViewButtonGroup",
+      "path": "widgets/chrome/view_button_group.dart",
+      "tier": "widget",
+      "status": "mounted",
+      "props": [
+        "items",
+        "selectedId",
+        "height"
+      ]
+    },
+    {
+      "type": "widgetShelf",
+      "foundation": "WidgetShelf",
+      "path": "widgets/chrome/widget_shelf.dart",
+      "tier": "widget",
+      "status": "mounted",
+      "props": [
+        "items",
+        "selectedId",
+        "height",
+        "radius"
+      ]
+    },
+    {
+      "type": "catalogSideRail",
+      "foundation": "CatalogSideRail",
+      "path": "blocks/catalog/catalog_cards_grid.dart",
+      "tier": "widget",
+      "status": "mounted",
+      "props": [
+        "items",
+        "selectedId",
+        "width",
+        "height"
+      ]
+    },
+    {
+      "type": "catalogCategoryRail",
+      "foundation": "CatalogCategoryRail",
+      "path": "widgets/chrome/catalog_category_rail.dart",
+      "tier": "widget",
+      "status": "mounted",
+      "props": [
+        "items",
+        "selectedId",
+        "width",
+        "compact",
+        "height"
+      ]
+    },
+    {
+      "type": "catalogSearchTypeSegment",
+      "foundation": "CatalogSearchTypeSegment",
+      "path": "widgets/catalog/catalog_search_filter_lens.dart",
+      "tier": "widget",
+      "status": "mounted",
+      "props": [
+        "value"
+      ]
+    },
+    {
+      "type": "catalogSearchScoreArc",
+      "foundation": "CatalogSearchScoreArc",
+      "path": "widgets/catalog/catalog_search_filter_lens.dart",
+      "tier": "widget",
+      "status": "mounted",
+      "props": [
+        "value",
+        "tvLeanback",
+        "compact"
+      ]
+    },
+    {
+      "type": "catalogSearchYearTimeline",
+      "foundation": "CatalogSearchYearTimeline",
+      "path": "widgets/catalog/catalog_search_filter_lens.dart",
+      "tier": "widget",
+      "status": "mounted",
+      "props": [
+        "start",
+        "end",
+        "tvLeanback",
+        "compact"
+      ]
+    },
+    {
+      "type": "catalogSearchFilterChipSection",
+      "foundation": "CatalogSearchFilterChipSection",
+      "path": "widgets/catalog/catalog_search_filter_lens.dart",
+      "tier": "widget",
+      "status": "mounted",
+      "props": [
+        "title",
+        "options",
+        "selectedToken"
+      ]
+    },
+    {
+      "type": "catalogSearchFilterGhostChip",
+      "foundation": "CatalogSearchFilterGhostChip",
+      "path": "widgets/catalog/catalog_search_filter_lens.dart",
+      "tier": "widget",
+      "status": "mounted",
+      "props": [
+        "label",
+        "selected"
+      ]
+    },
+    {
+      "type": "catalogSearchSkeletonCard",
+      "foundation": "CatalogSearchSkeletonCard",
+      "path": "widgets/catalog/catalog_search_result_card.dart",
+      "tier": "widget",
+      "status": "mounted",
+      "props": [
+        "width",
+        "height"
+      ]
+    },
+    {
+      "type": "catalogDenseRowSkeleton",
+      "foundation": "CatalogDenseRowSkeleton",
+      "path": "widgets/chrome/catalog_dense_list.dart",
+      "tier": "widget",
+      "status": "mounted",
+      "props": [
+        "index"
+      ]
+    },
+    {
+      "type": "catalogScheduleDenseSkeleton",
+      "foundation": "CatalogScheduleDenseSkeleton",
+      "path": "widgets/chrome/catalog_dense_list.dart",
+      "tier": "widget",
+      "status": "mounted",
+      "props": [
+        "leading",
+        "topPadding",
+        "trailing",
+        "bottomPadding",
+        "height"
+      ]
+    },
+    {
+      "type": "catalogPosterLoadingGrid",
+      "foundation": "CatalogPosterLoadingGrid",
+      "path": "widgets/chrome/catalog_poster_grid.dart",
+      "tier": "widget",
+      "status": "mounted",
+      "props": [
+        "columns",
+        "cardW",
+        "cardH",
+        "rowCount",
+        "height"
+      ]
+    },
+    {
+      "foundation": "ForjaLogoIdle",
+      "path": "brand/animated_logo.dart",
+      "tier": "brand",
+      "status": "shell_forbidden",
+      "note": "Splash / brand"
+    },
+    {
+      "foundation": "SplashLoadingDots",
+      "path": "brand/animated_logo.dart",
+      "tier": "brand",
+      "status": "shell_forbidden",
+      "note": "Splash / brand"
+    },
+    {
+      "foundation": "SplashLogoWithHalo",
+      "path": "brand/animated_logo.dart",
+      "tier": "brand",
+      "status": "shell_forbidden",
+      "note": "Splash / brand"
+    },
+    {
+      "foundation": "TvBlinkingCaret",
+      "path": "widgets/tv/tv_search_browse_overlay.dart",
+      "tier": "widget",
+      "status": "shell_forbidden",
+      "note": "TV focus policy"
+    },
+    {
+      "foundation": "TvSearchBrowsePlaceholder",
+      "path": "widgets/tv/tv_search_browse_overlay.dart",
+      "tier": "widget",
+      "status": "shell_forbidden",
+      "note": "TV focus policy"
+    },
+    {
+      "foundation": "TvTypewriterText",
+      "path": "widgets/tv/tv_search_browse_overlay.dart",
+      "tier": "widget",
+      "status": "shell_forbidden",
+      "note": "TV focus policy"
+    },
+    {
+      "foundation": "SettingsRowChrome",
+      "path": "widgets/chrome/settings_player_chrome.dart",
+      "tier": "widget",
+      "status": "shell_forbidden",
+      "note": "Settings host chrome"
+    },
+    {
+      "foundation": "PlayerSliderChrome",
+      "path": "widgets/chrome/settings_player_chrome.dart",
+      "tier": "widget",
+      "status": "shell_forbidden",
+      "note": "Player host chrome"
+    },
+    {
+      "foundation": "LiveFavoriteStar",
+      "path": "widgets/chrome/live_favorite_star.dart",
+      "tier": "widget",
+      "status": "shell_forbidden",
+      "note": "Host favorite glue"
+    },
+    {
+      "foundation": "DetailsHeroSurface",
+      "path": "widgets/details/details_hero.dart",
+      "tier": "widget",
+      "status": "shell_forbidden",
+      "note": "Host/details glue \u2014 use detailsHero"
+    },
+    {
+      "foundation": "DetailsHeroActionRowFit",
+      "path": "widgets/details/play_row.dart",
+      "tier": "widget",
+      "status": "shell_forbidden",
+      "note": "Host/details glue"
+    },
+    {
+      "foundation": "DetailsHeroMetaLine",
+      "path": "widgets/details/details_hero.dart",
+      "tier": "widget",
+      "status": "shell_forbidden",
+      "note": "Host/details glue \u2014 use metaLine"
+    },
+    {
+      "foundation": "ChromaticHeroTitleText",
+      "path": "widgets/details/hero_title.dart",
+      "tier": "widget",
+      "status": "shell_forbidden",
+      "note": "Internal title paint \u2014 use heroTitle"
+    },
+    {
+      "foundation": "HeroPillGlassShell",
+      "path": "widgets/details/hero_pill_surfaces.dart",
+      "tier": "widget",
+      "status": "shell_forbidden",
+      "note": "Internal pill chrome \u2014 use heroPillPlay"
+    },
+    {
+      "foundation": "HeroPillGroupedSlotSurface",
+      "path": "widgets/details/hero_pill_surfaces.dart",
+      "tier": "widget",
+      "status": "shell_forbidden",
+      "note": "Internal pill chrome"
+    },
+    {
+      "foundation": "HeroPillSegmentSurface",
+      "path": "widgets/details/hero_pill_surfaces.dart",
+      "tier": "widget",
+      "status": "shell_forbidden",
+      "note": "Internal pill chrome"
+    },
+    {
+      "foundation": "HeroPillSlotDivider",
+      "path": "widgets/details/hero_pill_surfaces.dart",
+      "tier": "widget",
+      "status": "shell_forbidden",
+      "note": "Internal pill chrome"
+    },
+    {
+      "foundation": "ForjaBusyCancelGlyph",
+      "path": "widgets/feedback/loading_dots.dart",
+      "tier": "widget",
+      "status": "shell_forbidden",
+      "note": "Host busy glyph"
+    },
+    {
+      "foundation": "EntryDetailsChrome",
+      "path": "blocks/details/details_block.dart",
+      "tier": "block",
+      "status": "shell_forbidden",
+      "note": "via details/entryDetails"
+    },
+    {
+      "foundation": "DetailsScreen",
+      "path": "blocks/details/details_block.dart",
+      "tier": "block",
+      "status": "shell_forbidden",
+      "note": "via details/entryDetails"
+    },
+    {
+      "foundation": "DetailsPageBlock",
+      "path": "blocks/details/details_block.dart",
+      "tier": "block",
+      "status": "shell_forbidden",
+      "note": "via details/entryDetails"
     }
   ]
 }
