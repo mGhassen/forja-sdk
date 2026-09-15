@@ -57,7 +57,7 @@
       "tier": "layout",
       "status": "mounted",
       "helper": "kitList",
-      "props": ["items", "style", "kindMenu", "statusTab", "source", "load"]
+      "props": ["items", "style", "kindMenu", "statusTab", "source", "load", "gap", "pad", "cardKind", "emptyTitle", "emptyDescription", "open", "openSetting"]
     },
     {
       "type": "kit.row",
@@ -66,7 +66,7 @@
       "status": "mounted",
       "helper": "kitRow",
       "aliases": ["rail", "ranked"],
-      "props": ["title", "items", "style", "load"]
+      "props": ["title", "items", "style", "load", "aspect", "gap", "rankedGap", "pad", "titlePad", "hideWhenBleed", "focusUp", "focusDown"]
     },
     {
       "type": "hero",
@@ -74,14 +74,14 @@
       "tier": "layout",
       "status": "mounted",
       "aliases": ["cinematic_hero"],
-      "props": ["items", "title", "bleed", "load"]
+      "props": ["items", "title", "bleed", "load", "actions", "slideCap", "bleedDownOffset", "focusDown"]
     },
     {
       "type": "mood",
       "foundation": "MoodSection",
       "tier": "layout",
       "status": "mounted",
-      "props": ["title", "options", "load"]
+      "props": ["title", "options", "load", "rowHeight", "pad", "titlePad"]
     },
     {
       "type": "continue",
@@ -89,7 +89,7 @@
       "tier": "layout",
       "status": "mounted",
       "aliases": ["host.continue"],
-      "props": ["mergeHomeWatchHistory"]
+      "props": ["mergeHomeWatchHistory", "cardWidth", "cardHeight", "gap", "pad", "titlePad"]
     },
     {
       "type": "because",
@@ -97,7 +97,7 @@
       "tier": "layout",
       "status": "mounted",
       "aliases": ["host.because"],
-      "props": ["load", "heading", "seedPoster", "canShuffle", "items"]
+      "props": ["load", "heading", "seedPoster", "canShuffle", "items", "pad", "titlePad"]
     },
     {
       "type": "vertical_filters",
@@ -143,7 +143,7 @@
       "foundation": "CatalogSearchPage",
       "tier": "block",
       "status": "mounted",
-      "props": ["hintText"]
+      "props": ["hintText", "backdropUrl", "backgroundColor"]
     },
     {
       "type": "details",
@@ -153,12 +153,25 @@
       "helper": "kitNode",
       "props": [
         "title",
+        "subtitle",
         "backdropUrl",
+        "backdropUrls",
         "posterUrl",
+        "logoUrl",
         "overview",
         "genres",
         "metaParts",
-        "rating"
+        "rating",
+        "enableKenBurns",
+        "contentScrim",
+        "height",
+        "tvDensity",
+        "plainTitle",
+        "selectableTitle",
+        "chromeOnly",
+        "backgroundColor",
+        "loading",
+        "errorMessage"
       ]
     },
     {
@@ -167,7 +180,30 @@
       "tier": "block",
       "status": "mounted",
       "helper": "kitNode",
-      "props": ["title", "backdropUrl", "posterUrl", "overview"]
+      "props": [
+        "title",
+        "subtitle",
+        "backdropUrl",
+        "backdropUrls",
+        "posterUrl",
+        "logoUrl",
+        "overview",
+        "genres",
+        "metaParts",
+        "rating",
+        "enableKenBurns",
+        "contentScrim",
+        "height",
+        "tvDensity",
+        "plainTitle",
+        "selectableTitle",
+        "chromeOnly",
+        "backgroundColor",
+        "factsValueMaxLines",
+        "belowActionRowFullWidth",
+        "belowActionRowGap",
+        "scaleActionRow"
+      ]
     },
     {
       "type": "entryDetails",
@@ -722,13 +758,19 @@
       "foundation": "PortalListPanel",
       "path": "widgets/chrome/portal_list_panel.dart",
       "tier": "widget",
-      "status": "not_mounted"
+      "status": "mounted"
+    },
+    {
+      "foundation": "PortalListRow",
+      "path": "widgets/chrome/portal_list_row.dart",
+      "tier": "widget",
+      "status": "mounted"
     },
     {
       "foundation": "PortalsChip",
       "path": "widgets/chrome/portals_chip.dart",
       "tier": "widget",
-      "status": "not_mounted"
+      "status": "mounted"
     },
     {
       "foundation": "SettingsPlayerChrome",
