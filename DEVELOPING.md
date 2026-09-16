@@ -142,7 +142,7 @@ Each **plugin** object:
 | `types` | no | Domain tags — see [Plugin types](#plugin-types) |
 | `config` | no | Opaque JSON merged into `ctx.config` at runtime |
 | `prelude` | no | Shared JS file prepended before `entry` (e.g. `_kit.js`) |
-| `capabilities` | no | Feature flags (`catalog`, `resolve`, `nav`, `search`, …) |
+| `capabilities` | no | Feature flags (`catalog`, `resolve`, `nav`, `search`, `search_helpers`, …) |
 | `nav` | no | Shell tab contribution for `kind: catalog` |
 | `enrich` | no | Companion plugin id for post-rail/details enrich |
 | `hosts` | no | Hostname suffixes for `kind: hop` |
@@ -472,6 +472,7 @@ Prefer a **pack-relative** icon (`icons/nav.png`). Omit `icon` for the Material 
 | `nav` | Contributes shell tab (with `nav` block) |
 | `layout`, `rail`, `feed` | Browse widgets |
 | `search` | Top-bar Search → pack search action |
+| `search_helpers` | Left-column idle/contextual title suggestions (`action: search_helpers`) |
 | `host_search` | Opens shared Cmd+F search overlay |
 | `filters` | Merges chrome filters into search/rail params |
 | `structured_search` | Advanced filter lens (TMDB-style) |
