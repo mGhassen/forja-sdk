@@ -36,8 +36,8 @@ Source tree (host): `packages/forja_foundation/lib/{components,widgets,blocks,br
 
 | type | Foundation | Notes |
 |------|------------|--------|
-| `kit.topBar` | `CatalogTopChrome` | `actions[]`; visual: `height`, `pad`/`padding`; portals action may set `width` (min width for `PortalsChip`) |
-| `kit.categoryBar` | `CatalogChipBar` / `CatalogSideRail` / `CatalogCategoryRail` | `orientation: 'vertical'` → side rail; `features` → pin / reorder / Favorites; `pad` |
+| `kit.topBar` | `CatalogTopChrome` | `actions[]`; visual: `height`, `gap`, `pad`/`padding`; portals action may set `width` / size props for `PortalsChip`; chrome widgets accept optional visual props (`height`, `width`, `radius`, `pad`, `fontSize`, `iconSize`, `gap`, `rowHeight`, …) |
+| `kit.categoryBar` | `CatalogChipBar` / `CatalogSideRail` / `CatalogCategoryRail` | `orientation: 'vertical'` → side rail; `features` → pin / reorder / Favorites; `pad`; rail visual: `rowHeight`, `fontSize`, `iconSize`, `rowPadH`, `listPadV`, `pinSlotWidth` |
 | `kit.menu` | chips / `ForjaShellChip` | selectable wrap, `toggle`; visual: `pad`, `gap` |
 | `kit.tabs` | `CatalogChipBar` | status/segment strip; visual: `pad` |
 | `vertical_filters` | shell rail registry | body paints empty; options for provider rail |

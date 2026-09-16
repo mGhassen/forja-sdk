@@ -43,7 +43,8 @@
         "label",
         "height",
         "pad",
-        "padding"
+        "padding",
+        "gap"
       ]
     },
     {
@@ -483,7 +484,8 @@
         "expand",
         "color",
         "height",
-        "compact"
+        "compact",
+        "fontSize"
       ]
     },
     {
@@ -507,7 +509,10 @@
         "width",
         "padding",
         "backgroundColor",
-        "items"
+        "items",
+        "minHeight",
+        "fontSize",
+        "leadingSize"
       ]
     },
     {
@@ -1380,7 +1385,9 @@
         "selected",
         "radius",
         "padding",
-        "fontSize"
+        "pad",
+        "fontSize",
+        "iconSize"
       ]
     },
     {
@@ -1391,7 +1398,10 @@
       "status": "mounted",
       "props": [
         "title",
-        "padding"
+        "subtitle",
+        "padding",
+        "fontSize",
+        "subtitleFontSize"
       ]
     },
     {
@@ -1444,7 +1454,11 @@
       "status": "mounted",
       "props": [
         "width",
-        "items"
+        "items",
+        "pad",
+        "statusFontSize",
+        "rowHeight",
+        "titleFontSize"
       ]
     },
     {
@@ -1455,7 +1469,11 @@
       "status": "mounted",
       "props": [
         "title",
-        "subtitle"
+        "subtitle",
+        "height",
+        "actionWidth",
+        "fontSize",
+        "metaFontSize"
       ]
     },
     {
@@ -1468,6 +1486,13 @@
         "label",
         "compact",
         "width",
+        "height",
+        "radius",
+        "pad",
+        "fontSize",
+        "iconSize",
+        "chevronSize",
+        "seatsFontSize",
         "accent"
       ]
     },
@@ -1502,7 +1527,11 @@
         "current",
         "options",
         "tvFocus",
-        "autofocusFirst"
+        "autofocusFirst",
+        "radius",
+        "fontSize",
+        "padding",
+        "pad"
       ]
     },
     {
@@ -1517,7 +1546,11 @@
         "selected",
         "icon",
         "tvFocus",
-        "scaleOnHover"
+        "scaleOnHover",
+        "radius",
+        "fontSize",
+        "padding",
+        "pad"
       ]
     },
     {
@@ -1755,7 +1788,10 @@
         "airing",
         "viewers",
         "selected",
-        "playable"
+        "playable",
+        "fontSize",
+        "metaFontSize",
+        "iconSize"
       ]
     },
     {
@@ -1929,7 +1965,13 @@
         "label",
         "icon",
         "selected",
-        "iconOnly"
+        "iconOnly",
+        "height",
+        "radius",
+        "maxWidth",
+        "fontSize",
+        "iconSize",
+        "gap"
       ]
     },
     {
@@ -2087,6 +2129,7 @@
       "props": [
         "trailingCount",
         "height",
+        "gap",
         "children"
       ]
     },
@@ -2099,7 +2142,9 @@
       "props": [
         "items",
         "selectedId",
-        "height"
+        "height",
+        "iconSize",
+        "dividerHeight"
       ]
     },
     {
@@ -2112,7 +2157,10 @@
         "items",
         "selectedId",
         "height",
-        "radius"
+        "radius",
+        "fontSize",
+        "iconSize",
+        "pad"
       ]
     },
     {
@@ -2139,7 +2187,13 @@
         "selectedId",
         "width",
         "compact",
-        "height"
+        "height",
+        "rowHeight",
+        "fontSize",
+        "iconSize",
+        "rowPadH",
+        "listPadV",
+        "pinSlotWidth"
       ]
     },
     {
