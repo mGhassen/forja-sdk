@@ -1467,6 +1467,7 @@
       "props": [
         "label",
         "compact",
+        "width",
         "accent"
       ]
     },

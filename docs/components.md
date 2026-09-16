@@ -36,7 +36,7 @@ Source tree (host): `packages/forja_foundation/lib/{components,widgets,blocks,br
 
 | type | Foundation | Notes |
 |------|------------|--------|
-| `kit.topBar` | `CatalogTopChrome` | `actions[]`; visual: `height`, `pad`/`padding` |
+| `kit.topBar` | `CatalogTopChrome` | `actions[]`; visual: `height`, `pad`/`padding`; portals action may set `width` (min width for `PortalsChip`) |
 | `kit.categoryBar` | `CatalogChipBar` / `CatalogSideRail` / `CatalogCategoryRail` | `orientation: 'vertical'` → side rail; `features` → pin / reorder / Favorites; `pad` |
 | `kit.menu` | chips / `ForjaShellChip` | selectable wrap, `toggle`; visual: `pad`, `gap` |
 | `kit.tabs` | `CatalogChipBar` | status/segment strip; visual: `pad` |
