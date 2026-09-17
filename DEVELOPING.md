@@ -542,6 +542,24 @@ Packs declare structure + serializable props only — **no Dart, no callbacks in
 
 D-pad **←/→ inside a row** (chips, posters) is host-owned. **`focusLeft` / `focusRight`** fire only at the row edge (first / last item), or from a selected `kit.list` row when a side panel is open — same named-row jump as `focusUp` / `focusDown`. Intra-row arrows stay index ± 1. OK / Back stay host (`open` / overlay pop).
 
+**Page focus map** (optional on `pages.<tabId>`): pack tells nav land / Back ladder; host executes named rows only.
+
+```javascript
+pages: {
+  iptv: {
+    focus: {
+      enter: 'cats',              // OK from shell nav
+      restore: 'cats',            // → from shell nav (preferCustom)
+      restoreMode: 'remembered',  // or 'first'
+      pageBack: ['items', 'cats'], // Back: leaf → outer → shell nav
+    },
+    widgets: [ /* … */ ],
+  },
+}
+```
+
+Widget-level `focusUp` / `focusDown` / `focusLeft` / `focusRight` still name edge jumps between registered row ids.
+
 ### Host helpers (catalog)
 
 ```javascript

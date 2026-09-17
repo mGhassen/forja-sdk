@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://forja.app/sdk/schema/layout-components.schema.json",
   "title": "Forja foundation components catalog",
-  "description": "Full forja_foundation inventory for pack authors. status=mounted \u2192 PackPaintTree accepts type today. status=shell_forbidden \u2192 host chassis / never pack-styled. status=not_mounted \u2192 transitional only. See docs/components.md.",
+  "description": "Full forja_foundation inventory for pack authors. status=mounted \u2192 PackPaintTree accepts type today. status=shell_forbidden \u2192 host chassis / never pack-styled. status=not_mounted \u2192 transitional only. See docs/components.md. Page-level TV focus map: pages.<tab>.focus { enter, restore, restoreMode, pageBack } — opaque row ids; host executes.",
   "version": 2,
   "statusValues": [
     "mounted",
