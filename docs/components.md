@@ -82,7 +82,7 @@ Also overridable specialized entries: `playPulse`, `playButtonLift`, `favoriteHe
 
 | type | Foundation | Notes |
 |------|------------|--------|
-| `kit.list` | `CatalogCardsGrid` | grid/list/timeline; `kindMenu`, `hubWithLoad`; visual: `gap`, `pad`, `cardKind` |
+| `kit.list` | `CatalogCardsGrid` | grid/list/timeline; `kindMenu`, `hubWithLoad`; visual: `gap`, `pad`, `cardWidth`, `cardKind` |
 | `kit.row` (`rail` / `ranked`) | `PosterRail` via paint | horizontal posters |
 
 **Rail visual props** (omit → Forja ShellTokens / catalog density):

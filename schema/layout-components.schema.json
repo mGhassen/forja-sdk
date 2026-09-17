@@ -122,6 +122,7 @@
         "load",
         "gap",
         "pad",
+        "cardWidth",
         "cardKind",
         "emptyTitle",
         "emptyDescription",
