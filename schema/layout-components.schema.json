@@ -24,7 +24,8 @@
         "widgets",
         "expand",
         "expandLast",
-        "axis"
+        "axis",
+        "motion"
       ]
     },
     {
@@ -443,7 +444,11 @@
         "badge",
         "width",
         "height",
-        "aspect"
+        "aspect",
+        "motion",
+        "hoverScale",
+        "focusScale",
+        "durationMs"
       ]
     },
     {
@@ -1387,7 +1392,11 @@
         "padding",
         "pad",
         "fontSize",
-        "iconSize"
+        "iconSize",
+        "motion",
+        "hoverScale",
+        "focusScale",
+        "durationMs"
       ]
     },
     {

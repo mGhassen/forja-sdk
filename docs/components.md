@@ -24,6 +24,42 @@ Source tree (host): `packages/forja_foundation/lib/{components,widgets,blocks,br
 
 ---
 
+## Motion presets (RFC-115)
+
+Closed interaction intents. **Numbers live in host `ForjaMotionTheme`** — packs override; widgets never hardcode scales.
+
+| Preset | Meaning |
+|--------|---------|
+| `cardLift` | posters, continue, episode, cast/trailer thumbs |
+| `chipLift` | mood, season, scroller arrows, small controls |
+| `fillOnly` | chips / rails / list rows (tint only, scale 1) |
+| `railIcon` | nav rail (host chassis; rarely pack-styled) |
+| `none` | static / Material-owned |
+
+**Pack-wide** (layout root / `kit.stack`):
+
+```js
+{
+  type: 'kit.stack',
+  motion: {
+    cardLift: { hoverScale: 1.08, focusScale: 1.08, durationMs: 200 },
+    chipLift: { hoverScale: 1.06, durationMs: 140 },
+  },
+  children: [ /* … */ ],
+}
+```
+
+**Per-node** (optional; wins over pack map for that node):
+
+```js
+{ type: 'shellChip', props: { motion: 'fillOnly' } }
+{ type: 'posterCard', props: { motion: 'cardLift', hoverScale: 1.1 } }
+```
+
+Also overridable specialized entries: `playPulse`, `playButtonLift`, `favoriteHeartbeat`, `kenBurns` (`minScale` / `maxScale` / `cycleSeconds`), `shelfExpand`, `shelfRevealDelayMs`, `heroPillHover` / `heroPillExpand` / `heroPillLabel`, `filterChrome` / `filterPanel`, `scrollSnap`, `pageFade`. Unknown keys ignored. Leanback TV still disables hover lift via host `scaleOnHover` policy — packs do not own that gate.
+
+---
+
 ## Mounted layout types (pack JSON today)
 
 ### Composer
