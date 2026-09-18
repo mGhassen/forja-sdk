@@ -72,8 +72,8 @@ Also overridable specialized entries: `playPulse`, `playButtonLift`, `favoriteHe
 
 | type | Foundation | Notes |
 |------|------------|--------|
-| `kit.topBar` | `CatalogTopChrome` | `actions[]`; visual: `height`, `gap`, `pad`/`padding`; portals action may set `width` / size props for `PortalsChip`; chrome widgets accept optional visual props (`height`, `width`, `radius`, `pad`, `fontSize`, `iconSize`, `gap`, `rowHeight`, …) |
-| `kit.categoryBar` | `CatalogChipBar` / `CatalogSideRail` / `CatalogCategoryRail` | `orientation: 'vertical'` → side rail; `features` → pin / reorder / Favorites; `pad`; rail visual: `rowHeight`, `fontSize`, `iconSize`, `rowPadH`, `listPadV`, `pinSlotWidth` |
+| `kit.topBar` | `CatalogTopChrome` | `actions[]`; `expandOnHover` on shelves (compact shell only); `hideWhenCompact` / `compactOnly` per action; visual: `height`, `gap`, `pad`/`padding`; portals action may set `width` / size props for `PortalsChip`; chrome widgets accept optional visual props (`height`, `width`, `radius`, `pad`, `fontSize`, `iconSize`, `gap`, `rowHeight`, …) |
+| `kit.categoryBar` | `CatalogChipBar` / `CatalogSideRail` / `CatalogCategoryRail` | `orientation: 'vertical'` → side rail; `features` → pin / reorder / Favorites; `search: { action: 'eventSearch', open: true, placeholder }` → always-open field above the rail; `pad`; rail visual: `rowHeight`, `fontSize`, `iconSize`, `rowPadH`, `listPadV`, `pinSlotWidth` |
 | `kit.menu` | chips / `ForjaShellChip` | selectable wrap, `toggle`; visual: `pad`, `gap` |
 | `kit.tabs` | `CatalogChipBar` | status/segment strip; visual: `pad` |
 | `vertical_filters` | shell rail registry | body paints empty; options for provider rail |
@@ -99,12 +99,20 @@ Also overridable specialized entries: `playPulse`, `playButtonLift`, `favoriteHe
 
 | type | Foundation | Notes |
 |------|------------|--------|
-| `hero` | `CinematicHero` | spotlight; usually `hubWithLoad`; `heightFraction`, `bleedDownOffset`, `actions` |
+| `hero` | `CinematicHero` | spotlight; usually `hubWithLoad`; visual props omit → ShellTokens (see table below) |
 | `mood` | `MoodSection` | mood circles + results; `rowHeight`, `pad`, `titlePad`, `gap` |
-| `continue` | `ContinueSection` | host watch history; `cardWidth`/`cardHeight`, `gap`, `pad`, `titlePad` |
-| `because` | `BecauseSection` | because-you-watched; `pad`, `titlePad`, `gap`, `cardWidth`/`cardHeight` |
+| `continue` | `ContinueSection` | host watch history; sizes + `titleFontSize` / `cardTitleFontSize` / … |
+| `because` | `BecauseSection` | because-you-watched; `cardWidth`/`cardHeight` + kicker/title/seeAll fonts |
 
-**Hero visual props** (omit → Forja defaults):
+**Rail / ranked (`kit.row`)** also: `itemWidth`, `itemHeight`, `height`, `titleFontSize` (omit → poster density).
+
+**Search** also: `resultCardWidth`, `resultCardAspect`, `sectionPad` (via `CatalogSearchDensity` for host grids).
+
+**Details / matchDetails** also: `sectionSpacing`, `heroBodyOverlap`, `contentPadding`, `descriptionWidthFraction`, section/body/meta fonts.
+
+**Cards:** `posterCard` — `borderRadius`, `titleFontSize`, `metaFontSize`, `motion`, `hoverScale`/`focusScale`. `eventCard` — `tvDensity`, radius/fonts/`padV`. `catalogChannelCard` / `catalogEpgGuide` — ChannelCardTokens / EpgGuideTokens keys.
+
+**Hero visual props** (omit → Forja defaults / ShellTokens):
 
 | Prop | Meaning | Default |
 |------|---------|---------|
@@ -114,9 +122,30 @@ Also overridable specialized entries: `playPulse`, `playButtonLift`, `favoriteHe
 | `actions[].label` / `icon` | Pill copy / icon key (`info`, `play`) | View details / info |
 | `slideCap` | Max carousel slides | `5` |
 | `bleedDownOffset` | Extra backdrop under bleed rail | `homePageBottomSectionDownOffset` |
-| `heightFraction` | Hero height as fraction of screen | ShellTokens compact/desktop |
+| `heightFraction` | Hero height as fraction of screen | shell desktop / TV fraction |
+| `height` | Absolute hero height (px); wins over fraction | unset |
+| `kenBurns` | Backdrop Ken Burns | shell input policy |
+| `minHeight` | Min hero band height | shell min height |
+| `nextRowPeekFraction` | Peek of next catalog row | shell peek |
+| `imageStartFraction` | Left solid / image seam start | compact/desktop image-start tokens |
+| `textColumnWidth` | Desktop text column max width | `heroTextColumnWidthDesktop` |
+| `textColumnTopInset` | Top inset under top bar | `heroTextColumnTopInsetDesktop` |
+| `textColumnVerticalAlign` | Align Y in text band (`-1` top … `1` bottom) | `heroTextColumnVerticalAlign` |
+| `titleSlotHeight` | Title / logo slot height | `heroTitleSlotHeightDesktop` |
+| `logoMaxHeight` | Logo image max height | desktop / compact / TV logo max |
+| `minTitleHeight` | Floor when slot shrinks | shell / metrics min title |
+| `metaSlotHeight` | Rating / year / badge row height | `heroMetaSlotHeightDesktop` |
+| `titleMetaGap` | Gap title → meta | `heroTitleMetaGapDesktop` |
+| `metaOverviewGap` | Gap meta → overview | `heroMetaOverviewGapDesktop` |
+| `metaActionsGap` | Gap overview → actions | `heroMetaActionsGapDesktop` |
+| `overviewMaxLines` | Synopsis max lines | `heroOverviewMaxLinesDesktop` |
+| `overviewFontSize` | Synopsis font size | `heroOverviewFontSizeDesktop` |
+| `overviewLineHeight` | Synopsis line height multiplier | `heroOverviewLineHeightDesktop` |
+| `upcomingNoticeReserve` | Space reserved for upcoming notice | `heroUpcomingNoticeReserveDesktop` |
+| `sectionPad` | Horizontal text inset | `homeSectionHorizontalPadding` |
+| `compactRightInset` | Compact text right inset | shell compact right inset |
 
-ShellTokens = Forja look when a key is absent. Another pack may set `tone: secondary` or a different `gap` without host changes.
+ShellTokens = Forja look when a key is absent. Chassis (`tvDensity`, `compact`, `scale`, focus policy) stays host-owned.
 
 **`kit.categoryBar` features** (vertical Live IPTV rail):
 
@@ -125,6 +154,8 @@ ShellTokens = Forja look when a key is absent. Another pack may set `tone: secon
 | `features.pin` | Show pin control; host persists order via store engine |
 | `features.reorder` | Delayed drag (desktop) / hold-OK float (TV) when sort is playlist |
 | `features.widgets` | `['favorites','watched']` → synthetic Favorites / Already watched rows (`__favorites__` / `__watched__`) |
+| `search` | `{ action: 'eventSearch', open: true, compactOnly?, placeholder? }` → always-open search above the vertical rail (`compactOnly: true` → narrow shell only) |
+| `rowHeight` / `fontSize` / `iconSize` / `rowPadH` / `listPadV` / `pinSlotWidth` | Feature-rail density (omit → host defaults) |
 
 Host injects `favorites`, `watched`, `pinnedCats`, `categoryOrder` into feed params. Pack filters on `categoryId`.
 

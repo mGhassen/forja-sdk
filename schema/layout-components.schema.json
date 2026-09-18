@@ -70,7 +70,13 @@
         "source",
         "dynamic",
         "pad",
-        "padding"
+        "padding",
+        "rowHeight",
+        "fontSize",
+        "iconSize",
+        "rowPadH",
+        "listPadV",
+        "pinSlotWidth"
       ]
     },
     {
@@ -155,7 +161,8 @@
         "focusDown",
         "itemWidth",
         "itemHeight",
-        "height"
+        "height",
+        "titleFontSize"
       ]
     },
     {
@@ -177,7 +184,26 @@
         "focusDown",
         "heightFraction",
         "height",
-        "kenBurns"
+        "kenBurns",
+        "minHeight",
+        "nextRowPeekFraction",
+        "imageStartFraction",
+        "textColumnWidth",
+        "textColumnTopInset",
+        "textColumnVerticalAlign",
+        "titleSlotHeight",
+        "logoMaxHeight",
+        "minTitleHeight",
+        "metaSlotHeight",
+        "titleMetaGap",
+        "metaOverviewGap",
+        "metaActionsGap",
+        "overviewMaxLines",
+        "overviewFontSize",
+        "overviewLineHeight",
+        "upcomingNoticeReserve",
+        "sectionPad",
+        "compactRightInset"
       ]
     },
     {
@@ -209,7 +235,11 @@
         "cardHeight",
         "gap",
         "pad",
-        "titlePad"
+        "titlePad",
+        "titleFontSize",
+        "cardTitleFontSize",
+        "cardSubtitleFontSize",
+        "cardRemainingFontSize"
       ]
     },
     {
@@ -230,7 +260,10 @@
         "titlePad",
         "gap",
         "cardWidth",
-        "cardHeight"
+        "cardHeight",
+        "kickerFontSize",
+        "titleFontSize",
+        "seeAllFontSize"
       ]
     },
     {
@@ -327,7 +360,10 @@
       "props": [
         "hintText",
         "backdropUrl",
-        "backgroundColor"
+        "backgroundColor",
+        "resultCardWidth",
+        "resultCardAspect",
+        "sectionPad"
       ]
     },
     {
@@ -356,7 +392,15 @@
         "chromeOnly",
         "backgroundColor",
         "loading",
-        "errorMessage"
+        "errorMessage",
+        "sectionSpacing",
+        "heroBodyOverlap",
+        "contentPadding",
+        "descriptionWidthFraction",
+        "heroDescriptionWidthFraction",
+        "sectionTitleFontSize",
+        "bodyFontSize",
+        "metaFontSize"
       ]
     },
     {
@@ -387,7 +431,15 @@
         "factsValueMaxLines",
         "belowActionRowFullWidth",
         "belowActionRowGap",
-        "scaleActionRow"
+        "scaleActionRow",
+        "sectionSpacing",
+        "heroBodyOverlap",
+        "contentPadding",
+        "descriptionWidthFraction",
+        "heroDescriptionWidthFraction",
+        "sectionTitleFontSize",
+        "bodyFontSize",
+        "metaFontSize"
       ]
     },
     {
@@ -449,7 +501,11 @@
         "motion",
         "hoverScale",
         "focusScale",
-        "durationMs"
+        "durationMs",
+        "borderRadius",
+        "radius",
+        "titleFontSize",
+        "metaFontSize"
       ]
     },
     {
@@ -472,7 +528,14 @@
         "viewers",
         "width",
         "height",
-        "tvDensity"
+        "tvDensity",
+        "borderRadius",
+        "radius",
+        "titleFontSize",
+        "metaFontSize",
+        "badgeFontSize",
+        "playOverlaySize",
+        "padV"
       ]
     },
     {
@@ -1903,7 +1966,12 @@
         "highlighted",
         "width",
         "height",
-        "health"
+        "health",
+        "radius",
+        "epgSlotHeight",
+        "titleFontSize",
+        "metaFontSize",
+        "badgeFontSize"
       ]
     },
     {
@@ -1916,7 +1984,10 @@
         "channels",
         "highlightChannelId",
         "emptyTitle",
-        "height"
+        "height",
+        "columnWidth",
+        "rowHeight",
+        "headerHeight"
       ]
     },
     {
