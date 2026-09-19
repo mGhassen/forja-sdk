@@ -552,6 +552,7 @@
         "loading",
         "expand",
         "color",
+        "hoverColor",
         "height",
         "compact",
         "fontSize"
