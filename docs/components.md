@@ -72,7 +72,7 @@ Also overridable specialized entries: `playPulse`, `playButtonLift`, `favoriteHe
 
 | type | Foundation | Notes |
 |------|------------|--------|
-| `kit.topBar` | `CatalogTopChrome` | `actions[]`; `expandOnHover` on shelves (compact shell only); `hideWhenCompact` / `compactOnly` / `showWhen: { menuId: value\|[…] }` per action; visual: `height`, `gap`, `pad`/`padding`; portals action may set `width` / size props for `PortalsChip`; chrome widgets accept optional visual props (`height`, `width`, `radius`, `pad`, `fontSize`, `iconSize`, `gap`, `rowHeight`, …) |
+| `kit.topBar` | `CatalogTopChrome` | `actions[]`; `expandOnHover` on shelves (compact shell only); `hideWhenCompact` / `hideWhenTv` / `compactOnly` / `showWhen: { menuId: value\|[…] }` per action; visual: `height`, `gap`, `pad`/`padding`; portals action may set `width` / size props for `PortalsChip`; chrome widgets accept optional visual props (`height`, `width`, `radius`, `pad`, `fontSize`, `iconSize`, `gap`, `rowHeight`, …) |
 | `kit.categoryBar` | `CatalogChipBar` / `CatalogSideRail` / `CatalogCategoryRail` | `orientation: 'vertical'` → side rail; `features` → pin / reorder / Favorites; `search: { action: 'eventSearch', open: true, placeholder }` → always-open field above the rail; `pad`; rail visual: `rowHeight`, `fontSize`, `iconSize`, `rowPadH`, `listPadV`, `pinSlotWidth` |
 | `kit.menu` | chips / `ForjaShellChip` | selectable wrap, `toggle`; visual: `pad`, `gap` |
 | `kit.tabs` | `CatalogChipBar` | status/segment strip; visual: `pad` |
