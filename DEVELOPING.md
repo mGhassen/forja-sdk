@@ -216,6 +216,8 @@ Return an array of maps. Empty array = no streams (not an error).
     'User-Agent': '…',
     Referer: 'https://embed.example/',
   },
+  probe: 'skip',              // optional — skip | masterOnly | headOrRange | segmentPoisonSample
+  pngStrip: 'auto',           // optional — never | auto | force
   subtitles: [ … ],           // optional — same shape Stremio uses
 }
 ```

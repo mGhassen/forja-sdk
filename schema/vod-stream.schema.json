@@ -25,6 +25,14 @@
           "type": "object",
           "additionalProperties": { "type": "string" }
         },
+        "probe": {
+          "type": "string",
+          "enum": ["skip", "masterOnly", "headOrRange", "segmentPoisonSample"]
+        },
+        "pngStrip": {
+          "type": "string",
+          "enum": ["never", "auto", "force"]
+        },
         "subtitles": {
           "type": "array",
           "items": { "type": "object" }
