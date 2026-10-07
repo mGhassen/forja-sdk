@@ -32,6 +32,7 @@
       "description": "Pack-relative script paths to download on install (entry/prelude files). Host fetches every listed file.",
       "items": { "type": "string", "minLength": 1 }
     },
+    "platforms": { "$ref": "#/$defs/platforms" },
     "plugins": {
       "type": "array",
       "minItems": 1,
@@ -39,6 +40,13 @@
     }
   },
   "$defs": {
+    "platforms": {
+      "type": "array",
+      "description": "Devices this pack / plugin may run on. Omit for every platform. A plugin list overrides the pack list. On other devices the host keeps the plugin installed but off and Settings shows it as not available on this device.",
+      "uniqueItems": true,
+      "items": { "type": "string", "enum": ["desktop", "phone", "tv"] }
+    },
+
     "plugin": {
       "type": "object",
       "required": ["id", "name", "entry"],
@@ -89,6 +97,7 @@
           }
         },
         "nav": { "$ref": "#/$defs/nav" },
+        "platforms": { "$ref": "#/$defs/platforms" },
         "enrich": { "type": "string", "minLength": 1 },
         "hosts": {
           "type": "array",

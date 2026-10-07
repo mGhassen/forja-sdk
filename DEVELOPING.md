@@ -128,6 +128,7 @@ Top-level fields:
 | `version` | yes | Semver string (`major.minor.patch`) |
 | `plugins` | yes | Array of plugin objects |
 | `tags` | no | Catalog topic tags for web Community Packs filters (`anime`, `arabic`, `kids`, …). When omitted, the catalog generator derives tags from `nav.tabId` and topic `types` |
+| `platforms` | no | Devices every plugin in the pack may run on — see [Platform gating](#platform-gating) |
 
 Do **not** put `enabled` on the pack or a plugin. On/off is host Settings only (Forja Packs + Features). The host defaults new installs to on; the pack never decides.
 
@@ -148,6 +149,7 @@ Each **plugin** object:
 | `hosts` | no | Hostname suffixes for `kind: hop` |
 | `protocol` / `kit` | catalog | Must match host — currently **`1`** / **`1`** |
 | `ctxConfigMap` | no | Maps extract ctx keys → config keys at VOD extract time |
+| `platforms` | no | Devices this plugin may run on — see [Platform gating](#platform-gating) |
 
 Script paths resolve relative to the manifest URL. Install is **transactional**: if any `entry` or `prelude` file fails to fetch, nothing from that install attempt is written.
 
@@ -602,6 +604,29 @@ Run desktop with `--dart-define-from-file=../../.env` so hub TMDB match works.
 ---
 
 ## Platform notes
+
+### Platform gating
+
+Some plugins only make sense on some devices — a Downloads hub is desktop and phone only. Declare the devices in the manifest and the host handles the rest:
+
+```json
+{
+  "id": "downloads-hub",
+  "kind": "catalog",
+  "platforms": ["desktop", "phone"],
+  "nav": { "label": "Downloads" }
+}
+```
+
+| Field | Where | Values | Meaning |
+|-------|-------|--------|---------|
+| `platforms` | pack root or plugin | `["desktop", "phone", "tv"]` | Allow-list of devices. Omit for all. A plugin list overrides the pack list |
+
+On a device not in the list the host keeps the plugin **installed but off**: no script loads, no nav tab, no Sources / search contribution. Settings → Forja Packs still lists it, tagged **Not available on this device**, with its switch locked. The stored on/off state is untouched, so a profile synced to a desktop keeps the plugin on there.
+
+`nav.hostRequires: "offlineDownloads"` is the older tab-only hide that app versions before platform gating read. Keep it on the Downloads hub while those builds are in the wild; new packs use `platforms`.
+
+### Other notes
 
 | Topic | Behavior |
 |-------|----------|
