@@ -74,6 +74,26 @@
           "items": { "type": "string", "minLength": 1 },
           "description": "Legacy alias for types."
         },
+        "languages": {
+          "type": "array",
+          "description": "VOD extract languages this plugin can return. Host uses the union for Home language filters and skips plugins that do not intersect the user selection. kind: sub (VOST / VOSTFR / …) or dub (spoken language). code: ISO-ish language id (en, fr, it, …).",
+          "items": {
+            "type": "object",
+            "required": ["kind", "code"],
+            "additionalProperties": true,
+            "properties": {
+              "kind": {
+                "type": "string",
+                "enum": ["sub", "dub"]
+              },
+              "code": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "^[a-zA-Z]{2,8}$"
+              }
+            }
+          }
+        },
         "config": { "type": "object" },
         "prelude": { "type": "string", "minLength": 1 },
         "protocol": { "type": "integer", "minimum": 1 },

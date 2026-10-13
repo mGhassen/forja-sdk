@@ -141,6 +141,7 @@ Each **plugin** object:
 | `entry` | yes | JS filename relative to manifest directory |
 | `kind` | no | `http` (default), `hop`, `catalog`, `host`, `torrent`, `debrid` |
 | `types` | no | Domain tags — see [Plugin types](#plugin-types) |
+| `languages` | no | VOD extract: `[{ "kind": "sub"\|"dub", "code": "fr" }, …]` — host language filter / Green Play gate |
 | `config` | no | Opaque JSON merged into `ctx.config` at runtime |
 | `prelude` | no | Shared JS file prepended before `entry` (e.g. `_kit.js`) |
 | `capabilities` | no | Feature flags (`catalog`, `resolve`, `nav`, `search`, `search_helpers`, …) |
