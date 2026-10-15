@@ -130,10 +130,25 @@
         "pad",
         "cardWidth",
         "cardKind",
+        "viewMenu",
         "emptyTitle",
         "emptyDescription",
         "open",
         "openSetting"
+      ],
+      "cardKind": [
+        "poster",
+        "event",
+        "eventCard",
+        "cards",
+        "dense",
+        "list",
+        "timeline",
+        "channel",
+        "liveChannel",
+        "channelList",
+        "guide",
+        "epg"
       ]
     },
     {
